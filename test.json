@@ -1,1 +1,4 @@
-{ "mfaForAdmins": false }
+{
+  "mfaForAdmins": true,
+  "backupsEnabled": false
+}
