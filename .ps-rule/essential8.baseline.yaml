@@ -8,4 +8,4 @@ spec:
       e8: /.*/
       maturity: /ML2/
   include:
-    - ./rules/*.Rule.ps1
+    - ./rules/*.ps1
