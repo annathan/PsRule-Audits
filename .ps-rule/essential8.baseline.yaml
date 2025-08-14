@@ -1,10 +1,60 @@
-﻿---
-binding:
-  targetType: 'Azure.Resource'
-configuration:
-  AZURE_USE_LOCATION: true
-include:
-  path:
-    - './rules/essential8.rules.ps1'
-rule:
-  exclude: []
+﻿apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-ml1
+spec:
+  rule:
+    tag:
+      e8: /.*/
+      maturity: /ML1/
+  include:
+    # Load all PowerShell rule files in /rules
+    - ./rules/*.ps1
+  configuration:
+    # Optional knobs your rules can read
+    E2_MIN_BACKUP_FREQUENCY_HOURS: 24
+
+---
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-ml2
+spec:
+  rule:
+    tag:
+      e8: /.*/
+      maturity: /ML2/
+  include:
+    - ./rules/*.ps1
+  configuration:
+    E2_MIN_BACKUP_FREQUENCY_HOURS: 24
+
+---
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-ml3
+spec:
+  rule:
+    tag:
+      e8: /.*/
+      maturity: /ML3/
+  include:
+    - ./rules/*.ps1
+  configuration:
+    E2_MIN_BACKUP_FREQUENCY_HOURS: 24
+
+---
+# Convenience: run all Essential Eight rules regardless of maturity level
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-all
+spec:
+  rule:
+    tag:
+      e8: /.*/
+  include:
+    - ./rules/*.ps1
+  configuration:
+    E2_MIN_BACKUP_FREQUENCY_HOURS: 24
