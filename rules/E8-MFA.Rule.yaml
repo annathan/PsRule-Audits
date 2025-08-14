@@ -1,0 +1,19 @@
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Rule
+metadata:
+  name: E8-MFA-AdminsEnabled
+  tags:
+    e8: MFA
+    maturity: ML2
+spec:
+  # This is a simple demo rule so you can see PSRule working.
+  # It passes only when an input object has "mfaForAdmins": true
+  # Replace with real checks once you bind to your exports or templates.
+  condition:
+    allOf:
+      - has:
+          field: 'mfaForAdmins'
+      - field: 'mfaForAdmins'
+        equals: true
+  message: MFA must be enforced for admin roles. Essential Eight ML2.
+  level: Error

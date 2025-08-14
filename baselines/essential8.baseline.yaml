@@ -1,0 +1,46 @@
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-ml1
+spec:
+  rule:
+    tag:
+      e8: /.*/
+      maturity: /ML1/
+  include:
+    - ./rules
+---
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-ml2
+spec:
+  rule:
+    tag:
+      e8: /.*/
+      maturity: /ML2/
+  include:
+    - ./rules
+---
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-ml3
+spec:
+  rule:
+    tag:
+      e8: /.*/
+      maturity: /ML3/
+  include:
+    - ./rules
+---
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-all
+spec:
+  rule:
+    tag:
+      e8: /.*/
+  include:
+    - ./rules
