@@ -1,0 +1,13 @@
+requires:
+  modules:
+    - PSRule
+input:
+  pathIgnore:
+    - baselines
+    - docs
+    - examples
+output:
+  culture:
+    - en-US
+execution:
+  baseline: ./baselines
