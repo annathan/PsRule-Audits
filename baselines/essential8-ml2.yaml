@@ -1,0 +1,11 @@
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: essential8-ml2
+spec:
+  rule:
+    tag:
+      e8: /.*/          # Match any rule tagged 'e8'
+      maturity: /ML2/   # Match rules tagged with maturity level 2
+  include:
+    - ./rules/*.Rule.ps1
