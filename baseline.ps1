@@ -1,4 +1,4 @@
-$baseline = @"
+$baseline = @'
 apiVersion: github.com/microsoft/PSRule/v1
 kind: Baseline
 metadata:
@@ -9,11 +9,8 @@ spec:
       e8: /.*/
       maturity: /ML2/
   include:
-    - ./rules
-"@
+    - ./rules/*.ps1
+'@
 
-# choose ONE of these paths based on where you keep the baseline:
-
-$path = ".\baselines\essential8.baseline.yaml"   # or in .\baselines
-
-Set-Content -Path $path -Value $baseline -Encoding utf8
+New-Item -ItemType Directory -Path .\.ps-rule -ErrorAction SilentlyContinue | Out-Null
+Set-Content -Path .\.ps-rule\essential8.baseline.yaml -Value $baseline -Encoding utf8
