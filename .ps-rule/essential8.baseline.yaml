@@ -4,5 +4,7 @@ binding:
 configuration:
   AZURE_USE_LOCATION: true
 include:
-  module:
-    - 'PSRule.Rules.Azure'
+  path:
+    - './rules/essential8.rules.ps1'
+rule:
+  exclude: []
