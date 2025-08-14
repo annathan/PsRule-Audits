@@ -1,1 +1,8 @@
-﻿
+﻿---
+binding:
+  targetType: 'Azure.Resource'
+configuration:
+  AZURE_USE_LOCATION: true
+include:
+  module:
+    - 'PSRule.Rules.Azure'
