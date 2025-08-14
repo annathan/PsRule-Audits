@@ -11,3 +11,6 @@ output:
     - en-US
 execution:
   baseline: ./baselines
+rule:
+  include:
+    - ./rules/*.Rule.ps1
