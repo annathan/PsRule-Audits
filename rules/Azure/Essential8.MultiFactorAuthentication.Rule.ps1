@@ -1,215 +1,146 @@
 # Essential8.MultiFactorAuthentication.Rule.ps1
-# PSRule definitions for Essential 8 - Multi-factor Authentication compliance
-# Covers Azure AD, Microsoft 365, and SharePoint environments
+# Type-agnostic PSRule rules so they run without binding
 
-#region Azure AD MFA Rules
-
-# Essential 8 Strategy 7: Multi-factor Authentication - Maturity Level 2
-Rule 'Essential8.AzureAD.MFA.Enabled' -Type 'Microsoft.AzureAD.User' {
-    $Assert.HasFieldValue($TargetObject, 'StrongAuthenticationRequirements.State', 'Enabled')
-    
-    # Check that MFA is enforced, not just enabled
-    $mfaState = $TargetObject.StrongAuthenticationRequirements | Where-Object { $_.State -eq 'Enforced' }
-    $Assert.GreaterOrEqual($mfaState.Count, 1)
+# Helper: fast field existence check
+function Test-HasField {
+    param($obj, [string]$name)
+    return $null -ne ($obj.PSObject.Properties[$name])
 }
 
-# Privileged accounts must have MFA enforced
-Rule 'Essential8.AzureAD.MFA.PrivilegedAccounts' -Type 'Microsoft.AzureAD.User' {
-    # Check if user has privileged roles
-    $privilegedRoles = @(
-        'Global Administrator',
-        'Security Administrator', 
-        'Exchange Administrator',
-        'SharePoint Administrator',
-        'User Administrator',
-        'Conditional Access Administrator'
-    )
-    
-    $userRoles = $TargetObject.AssignedRoles
-    $hasPrivilegedRole = $false
-    
-    foreach ($role in $userRoles) {
-        if ($privilegedRoles -contains $role.DisplayName) {
-            $hasPrivilegedRole = $true
-            break
-        }
-    }
-    
-    if ($hasPrivilegedRole) {
-        # Privileged accounts MUST have MFA enforced
-        $Assert.HasFieldValue($TargetObject, 'StrongAuthenticationRequirements.State', 'Enforced')
-        
-        # Should not rely on SMS/Voice calls (less secure methods)
-        $mfaMethods = $TargetObject.StrongAuthenticationMethods | Where-Object { $_.IsDefault -eq $true }
-        $Assert.NotIn($mfaMethods.MethodType, @('OneWaySMS', 'TwoWayVoiceMobile'))
+# ---------- Azure AD MFA Rules ----------
+
+Rule 'Essential8.AzureAD.MFA.Enabled' {
+    # Only evaluate on objects that look like users
+    if (Test-HasField $TargetObject 'StrongAuthenticationRequirements') {
+        $state = $TargetObject.StrongAuthenticationRequirements.State
+        $state | Should -BeIn @('Enabled','Enforced') -Because 'MFA must be enabled or enforced for all users'
+
+        $mfaState = @($TargetObject.StrongAuthenticationRequirements | Where-Object { $_.State -eq 'Enforced' })
+        ($mfaState.Count) | Should -BeGreaterOrEqual 1 -Because 'MFA should be enforced, not just enabled'
     }
 }
 
-# Conditional Access MFA policies should be configured
-Rule 'Essential8.AzureAD.ConditionalAccess.MFA' -Type 'Microsoft.AzureAD.ConditionalAccessPolicy' {
-    # Policy should be enabled
-    $Assert.HasFieldValue($TargetObject, 'State', 'enabled')
-    
-    # Should require MFA for high-risk locations or all locations
-    $grantControls = $TargetObject.GrantControls
-    $Assert.In('mfa', $grantControls.BuiltInControls)
-    
-    # Should apply to all users or specific high-risk groups
-    $Assert.GreaterOrEqual($TargetObject.Conditions.Users.IncludeUsers.Count, 1)
-}
+Rule 'Essential8.AzureAD.MFA.PrivilegedAccounts' {
+    if (Test-HasField $TargetObject 'AssignedRoles' -and Test-HasField $TargetObject 'StrongAuthenticationRequirements') {
 
-# Block legacy authentication protocols
-Rule 'Essential8.AzureAD.BlockLegacyAuth' -Type 'Microsoft.AzureAD.ConditionalAccessPolicy' {
-    if ($TargetObject.DisplayName -match 'Block.*Legacy' -or $TargetObject.DisplayName -match 'Legacy.*Block') {
-        $Assert.HasFieldValue($TargetObject, 'State', 'enabled')
-        
-        # Should block legacy authentication client apps
-        $clientApps = $TargetObject.Conditions.ClientAppTypes
-        $Assert.In('exchangeActiveSync', $clientApps)
-        $Assert.In('other', $clientApps)
-        
-        # Grant control should be "Block"
-        $Assert.HasFieldValue($TargetObject, 'GrantControls.Operator', 'OR')
-        $Assert.In('block', $TargetObject.GrantControls.BuiltInControls)
-    }
-}
+        $privilegedRoles = @(
+            'Global Administrator','Security Administrator','Exchange Administrator',
+            'SharePoint Administrator','User Administrator','Conditional Access Administrator'
+        )
 
-#endregion
+        $userRoles = @($TargetObject.AssignedRoles | ForEach-Object { $_.DisplayName })
+        $hasPrivileged = $userRoles | Where-Object { $privilegedRoles -contains $_ }
 
-#region Microsoft 365 MFA Rules
+        if ($hasPrivileged) {
+            $TargetObject.StrongAuthenticationRequirements.State |
+                Should -Be 'Enforced' -Because 'Privileged accounts must have MFA enforced'
 
-# Exchange Online MFA requirements
-Rule 'Essential8.Exchange.MFA.Required' -Type 'Microsoft.Exchange.MailboxPlan' {
-    # Modern authentication should be enabled
-    $Assert.HasFieldValue($TargetObject, 'ModernAuthenticationEnabled', $true)
-}
-
-# SharePoint MFA for external sharing
-Rule 'Essential8.SharePoint.ExternalSharing.MFA' -Type 'Microsoft.SharePoint.Tenant' {
-    # External users should require MFA
-    if ($TargetObject.SharingCapability -ne 'Disabled') {
-        $Assert.HasFieldValue($TargetObject, 'RequireAcceptingAccountMatchInvitedAccount', $true)
-        # Additional MFA requirements for external users should be configured via Conditional Access
-    }
-}
-
-# Power Platform MFA requirements
-Rule 'Essential8.PowerPlatform.MFA.DLP' -Type 'Microsoft.PowerPlatform.DLPPolicy' {
-    # Data Loss Prevention policies should enforce authentication requirements
-    $Assert.HasFieldValue($TargetObject, 'DisplayName')
-    
-    # Check for authentication-related connector restrictions
-    $connectorGroups = $TargetObject.ConnectorGroups
-    $businessDataGroup = $connectorGroups | Where-Object { $_.Classification -eq 'Business' }
-    
-    # High-risk connectors should be properly classified
-    $highRiskConnectors = @('shared_sql', 'shared_filesystem', 'shared_ftp')
-    foreach ($connector in $highRiskConnectors) {
-        if ($businessDataGroup.Connectors -contains $connector) {
-            # Should have additional restrictions
-            $Assert.HasField($TargetObject, 'EnvironmentType')
+            $defaultMethods = @($TargetObject.StrongAuthenticationMethods | Where-Object { $_.IsDefault }).MethodType
+            foreach ($m in $defaultMethods) {
+                $m | Should -Not -BeIn @('OneWaySMS','TwoWayVoiceMobile') -Because 'SMS/Voice are weaker factors for admins'
+            }
         }
     }
 }
 
-#endregion
-
-#region Service Account and Emergency Access
-
-# Emergency access accounts should exist but be properly secured
-Rule 'Essential8.AzureAD.EmergencyAccess' -Type 'Microsoft.AzureAD.User' {
-    if ($TargetObject.UserPrincipalName -match 'emergency|break.*glass|admin.*emergency') {
-        # Emergency accounts should be cloud-only
-        $Assert.HasFieldValue($TargetObject, 'DirSyncEnabled', $false)
-        
-        # Should have strong, unique passwords
-        $Assert.HasFieldValue($TargetObject, 'PasswordPolicies', 'DisablePasswordExpiration')
-        
-        # Should be excluded from MFA for emergency access but monitored
-        $Assert.HasField($TargetObject, 'StrongAuthenticationRequirements')
-        
-        # Should be in a dedicated administrative unit or group
-        $Assert.GreaterOrEqual($TargetObject.AssignedRoles.Count, 1)
+Rule 'Essential8.AzureAD.ConditionalAccess.MFA' {
+    if (Test-HasField $TargetObject 'GrantControls' -and Test-HasField $TargetObject 'Conditions') {
+        $TargetObject.State | Should -Be 'enabled' -Because 'CA policy should be enabled'
+        $TargetObject.GrantControls.BuiltInControls | Should -Contain 'mfa' -Because 'CA must require MFA'
+        ($TargetObject.Conditions.Users.IncludeUsers.Count) |
+            Should -BeGreaterOrEqual 1 -Because 'Policy must target users or groups'
     }
 }
 
-# Service accounts should use certificate-based authentication where possible
-Rule 'Essential8.AzureAD.ServiceAccounts.Auth' -Type 'Microsoft.AzureAD.ServicePrincipal' {
-    # Service principals should use certificate credentials, not passwords
-    $credentials = $TargetObject.KeyCredentials + $TargetObject.PasswordCredentials
-    
-    if ($credentials.Count -gt 0) {
-        # Prefer certificate credentials over password credentials
-        $certCredentials = $TargetObject.KeyCredentials
-        if ($certCredentials.Count -eq 0) {
-            # If using password credentials, ensure they're not expired
-            $passwordCreds = $TargetObject.PasswordCredentials | Where-Object { $_.EndDate -gt (Get-Date) }
-            $Assert.GreaterOrEqual($passwordCreds.Count, 1)
+Rule 'Essential8.AzureAD.BlockLegacyAuth' {
+    if (Test-HasField $TargetObject 'DisplayName' -and Test-HasField $TargetObject 'Conditions') {
+        if ($TargetObject.DisplayName -match 'Block.*Legacy' -or $TargetObject.DisplayName -match 'Legacy.*Block') {
+            $TargetObject.State | Should -Be 'enabled' -Because 'Block legacy auth policy should be enabled'
+            $TargetObject.Conditions.ClientAppTypes | Should -Contain 'exchangeActiveSync'
+            $TargetObject.Conditions.ClientAppTypes | Should -Contain 'other'
+            $TargetObject.GrantControls.Operator | Should -Be 'OR'
+            $TargetObject.GrantControls.BuiltInControls | Should -Contain 'block'
         }
     }
 }
 
-#endregion
+# ---------- Microsoft 365 MFA Rules ----------
 
-#region Reporting and Compliance Functions
-
-# Function to generate MFA compliance summary
-Rule 'Essential8.MFA.ComplianceSummary' -Type 'Microsoft.AzureAD.Tenant' {
-    # This rule provides overall MFA compliance status
-    $mfaEnabledUsers = $TargetObject.Users | Where-Object { 
-        $_.StrongAuthenticationRequirements.State -in @('Enabled', 'Enforced') 
+Rule 'Essential8.Exchange.MFA.Required' {
+    if (Test-HasField $TargetObject 'ModernAuthenticationEnabled') {
+        $TargetObject.ModernAuthenticationEnabled | Should -BeTrue -Because 'Modern Auth must be enabled'
     }
-    
-    $totalUsers = $TargetObject.Users.Count
-    $mfaEnabledCount = $mfaEnabledUsers.Count
-    $compliancePercentage = [math]::Round(($mfaEnabledCount / $totalUsers) * 100, 2)
-    
-    # Essential 8 ML2 requires MFA for all users
-    $Assert.GreaterOrEqual($compliancePercentage, 95) # Allow for service accounts
-    
-    # Output compliance metrics for reporting
-    Write-Information "MFA Compliance: $compliancePercentage% ($mfaEnabledCount/$totalUsers users)"
 }
 
-#endregion
-
-#region Rule Metadata and Documentation
-
-# Rule metadata for Essential 8 mapping
-$Essential8Metadata = @{
-    Strategy = 7
-    Name = 'Multi-factor Authentication'
-    MaturityLevel = 2
-    Description = 'Multi-factor authentication is used to authenticate standard users'
-    Implementation = @(
-        'Configure Azure AD MFA policies',
-        'Enable Conditional Access with MFA requirements', 
-        'Block legacy authentication protocols',
-        'Secure privileged accounts with enforced MFA',
-        'Configure emergency access procedures'
-    )
-    Validation = @(
-        'Verify MFA is enabled for all user accounts',
-        'Confirm privileged accounts use strong MFA methods',
-        'Validate Conditional Access policies are active',
-        'Check legacy authentication is blocked',
-        'Review emergency access account security'
-    )
-    Remediation = @(
-        'Enable MFA through Azure AD portal or PowerShell',
-        'Configure Conditional Access policies',
-        'Update user authentication methods',
-        'Block legacy authentication protocols',
-        'Implement proper emergency access procedures'
-    )
+Rule 'Essential8.SharePoint.ExternalSharing.MFA' {
+    if (Test-HasField $TargetObject 'SharingCapability') {
+        if ($TargetObject.SharingCapability -ne 'Disabled') {
+            $TargetObject.RequireAcceptingAccountMatchInvitedAccount |
+                Should -BeTrue -Because 'External users must authenticate strongly'
+        }
+    }
 }
 
-# Export metadata for reporting tools
-Export-ModuleMember -Variable Essential8Metadata
+Rule 'Essential8.PowerPlatform.MFA.DLP' {
+    if (Test-HasField $TargetObject 'ConnectorGroups') {
+        $TargetObject.DisplayName | Should -Not -BeNullOrEmpty
 
-#endregion
+        $business = $TargetObject.ConnectorGroups | Where-Object { $_.Classification -eq 'Business' }
+        if ($business) {
+            foreach ($connector in @('shared_sql','shared_filesystem','shared_ftp')) {
+                if ($business.Connectors -contains $connector) {
+                    (Test-HasField $TargetObject 'EnvironmentType') |
+                        Should -BeTrue -Because 'High-risk connectors require explicit environment scoping'
+                }
+            }
+        }
+    }
+}
 
-# Rule execution configuration
-$PSRule = @{
-    Include = @('Essential8.*.MFA.*')
-    Baseline = 'Essential8.ML2.Baseline'}
+# ---------- Service Account and Emergency Access ----------
+
+Rule 'Essential8.AzureAD.EmergencyAccess' {
+    if (Test-HasField $TargetObject 'UserPrincipalName') {
+        if ($TargetObject.UserPrincipalName -match 'emergency|break.*glass|admin.*emergency') {
+            if (Test-HasField $TargetObject 'DirSyncEnabled') {
+                $TargetObject.DirSyncEnabled | Should -BeFalse -Because 'Emergency accounts should be cloud-only'
+            }
+            if (Test-HasField $TargetObject 'PasswordPolicies') {
+                $TargetObject.PasswordPolicies | Should -Be 'DisablePasswordExpiration'
+            }
+            (Test-HasField $TargetObject 'StrongAuthenticationRequirements') |
+                Should -BeTrue -Because 'Emergency accounts still tracked for MFA config'
+            if (Test-HasField $TargetObject 'AssignedRoles') {
+                ($TargetObject.AssignedRoles.Count) | Should -BeGreaterOrEqual 1
+            }
+        }
+    }
+}
+
+Rule 'Essential8.AzureAD.ServiceAccounts.Auth' {
+    if (Test-HasField $TargetObject 'KeyCredentials' -or Test-HasField $TargetObject 'PasswordCredentials') {
+        $keyCount = @($TargetObject.KeyCredentials).Count
+        $pwdValid = @($TargetObject.PasswordCredentials | Where-Object { $_.EndDate -gt (Get-Date) }).Count
+        if ($keyCount -eq 0) {
+            $pwdValid | Should -BeGreaterOrEqual 1 -Because 'Service principals need non-expired credentials at minimum'
+        }
+    }
+}
+
+# ---------- Reporting ----------
+
+Rule 'Essential8.MFA.ComplianceSummary' {
+    if (Test-HasField $TargetObject 'Users') {
+        $mfaEnabledUsers = @(
+            $TargetObject.Users | Where-Object {
+                $_.StrongAuthenticationRequirements.State -in @('Enabled','Enforced')
+            }
+        )
+        $total = @($TargetObject.Users).Count
+        if ($total -gt 0) {
+            $pct = [math]::Round(($mfaEnabledUsers.Count / $total) * 100, 2)
+            $pct | Should -BeGreaterOrEqual 95 -Because 'E8 ML2 expects near-universal MFA'
+            Write-Information "MFA Compliance: $pct% ($($mfaEnabledUsers.Count)/$total users)"
+        }
+    }
+}
