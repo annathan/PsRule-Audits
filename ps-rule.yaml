@@ -1,0 +1,6 @@
+configuration:
+  binding:
+    targetType:
+      - type
+      - objectType
+      - $type
