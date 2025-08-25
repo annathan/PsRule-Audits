@@ -45,7 +45,7 @@ PsRule-Audits/
 Install-Module PSRule -Force
 Install-Module Microsoft.Graph -Force  
 Install-Module ExchangeOnlineManagement -Force
-Install-Module PnP.PowerShell -Force
+Install-Module -Name "PnP.PowerShell" -Force 
 Install-Module Az.Accounts -Force
 ```
 
