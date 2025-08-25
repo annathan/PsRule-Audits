@@ -1,0 +1,310 @@
+# Essential8.Baselines.Rule.yaml
+# PSRule baseline configurations for Essential 8 maturity levels
+# Maps ACSC Essential 8 requirements to PSRule validation
+
+# Metadata
+metadata:
+  name: Essential8-Baselines
+  version: '1.0.0'
+  description: 'Australian Cyber Security Centre Essential 8 compliance baselines for Microsoft cloud environments'
+  author: 'Essential 8 PSRule Community'
+  compliance:
+    framework: 'ACSC Essential 8'
+    version: '2023.11'
+    url: 'https://www.cyber.gov.au/resources-business-and-government/essential-cybersecurity/essential-eight'
+
+---
+# Essential 8 Maturity Level 1 Baseline
+# Partially aligned with mitigation strategy objectives
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.ML1.Baseline
+  annotations:
+    compliance.framework: 'ACSC Essential 8'
+    compliance.maturity: 'Level 1'
+    compliance.description: 'Partially aligned with mitigation strategy objectives'
+spec:
+  binding:
+    targetType:
+      - 'Microsoft.AzureAD.*'
+      - 'Microsoft.Exchange.*'
+      - 'Microsoft.SharePoint.*'
+      - 'Microsoft.Security.*'
+      - 'Microsoft.PowerPlatform.*'
+  
+  rule:
+    include:
+      # Strategy 1: Application Control
+      - 'Essential8.AzureAD.Applications.Approved'
+      - 'Essential8.SharePoint.Apps.Governance'
+      - 'Essential8.PowerPlatform.DLP.Basic'
+      
+      # Strategy 2: Patch Applications
+      - 'Essential8.Azure.UpdateManagement.Enabled'
+      - 'Essential8.M365.UpdatePolicies.Basic'
+      
+      # Strategy 3: Configure Microsoft Office Macro Settings
+      - 'Essential8.M365.Macros.InternetBlocked'
+      - 'Essential8.Exchange.MacroFiltering.Basic'
+      
+      # Strategy 4: User Application Hardening
+      - 'Essential8.M365.BrowserSecurity.Basic'
+      - 'Essential8.AzureAD.ConditionalAccess.Basic'
+      
+      # Strategy 5: Restrict Administrative Privileges
+      - 'Essential8.AzureAD.AdminAccounts.Identified'
+      - 'Essential8.SharePoint.Permissions.Review'
+      
+      # Strategy 6: Patch Operating Systems
+      - 'Essential8.Azure.OSPatching.Enabled'
+      - 'Essential8.M365.WindowsUpdate.Basic'
+      
+      # Strategy 7: Multi-factor Authentication
+      - 'Essential8.AzureAD.MFA.Enabled'
+      - 'Essential8.AzureAD.MFA.PrivilegedAccounts'
+      
+      # Strategy 8: Regular Backups
+      - 'Essential8.Azure.Backup.Configured'
+      - 'Essential8.M365.Retention.Basic'
+      - 'Essential8.SharePoint.Versioning.Enabled'
+
+---
+# Essential 8 Maturity Level 2 Baseline  
+# Mostly aligned with mitigation strategy objectives
+# Mandatory for Australian Government non-corporate Commonwealth entities
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.ML2.Baseline
+  annotations:
+    compliance.framework: 'ACSC Essential 8'
+    compliance.maturity: 'Level 2'
+    compliance.description: 'Mostly aligned with mitigation strategy objectives'
+    compliance.mandatory: 'Australian Government NCCEs'
+spec:
+  binding:
+    targetType:
+      - 'Microsoft.AzureAD.*'
+      - 'Microsoft.Exchange.*'
+      - 'Microsoft.SharePoint.*'
+      - 'Microsoft.Security.*'
+      - 'Microsoft.PowerPlatform.*'
+  
+  rule:
+    include:
+      # Include all ML1 rules
+      - 'Essential8.ML1.*'
+      
+      # Strategy 1: Application Control - Enhanced
+      - 'Essential8.AzureAD.Applications.CodeSigning'
+      - 'Essential8.SharePoint.Apps.CertifiedOnly'
+      - 'Essential8.PowerPlatform.DLP.Enhanced'
+      - 'Essential8.Azure.ContainerSecurity.Scanning'
+      
+      # Strategy 2: Patch Applications - Enhanced
+      - 'Essential8.Azure.UpdateManagement.Automated'
+      - 'Essential8.M365.UpdatePolicies.Enforced'
+      - 'Essential8.Azure.VulnerabilityAssessment.Active'
+      - 'Essential8.Security.PatchCompliance.48Hours'
+      
+      # Strategy 3: Configure Microsoft Office Macro Settings - Enhanced
+      - 'Essential8.M365.Macros.DigitallySignedOnly'
+      - 'Essential8.Exchange.MacroFiltering.Advanced'
+      - 'Essential8.SharePoint.MacroRestrictions.Strict'
+      
+      # Strategy 4: User Application Hardening - Enhanced
+      - 'Essential8.M365.BrowserSecurity.Advanced'
+      - 'Essential8.AzureAD.ConditionalAccess.Comprehensive'
+      - 'Essential8.Security.WebProtection.ATP'
+      
+      # Strategy 5: Restrict Administrative Privileges - Enhanced
+      - 'Essential8.AzureAD.PIM.Enabled'
+      - 'Essential8.AzureAD.AdminMFA.Enforced'
+      - 'Essential8.SharePoint.AdminAccess.JustInTime'
+      - 'Essential8.Azure.RBAC.LeastPrivilege'
+      
+      # Strategy 6: Patch Operating Systems - Enhanced
+      - 'Essential8.Azure.OSPatching.Automated'
+      - 'Essential8.M365.WindowsUpdate.Enforced'
+      - 'Essential8.Security.OSCompliance.Monitoring'
+      
+      # Strategy 7: Multi-factor Authentication - Enhanced
+      - 'Essential8.AzureAD.MFA.AllUsers'
+      - 'Essential8.AzureAD.ConditionalAccess.MFA'
+      - 'Essential8.AzureAD.BlockLegacyAuth'
+      - 'Essential8.Exchange.ModernAuth.Required'
+      
+      # Strategy 8: Regular Backups - Enhanced
+      - 'Essential8.Azure.Backup.Automated'
+      - 'Essential8.M365.Retention.Comprehensive'
+      - 'Essential8.SharePoint.Backup.ThirdParty'
+      - 'Essential8.Security.BackupTesting.Regular'
+
+---
+# Essential 8 Maturity Level 3 Baseline
+# Fully aligned with mitigation strategy objectives  
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.ML3.Baseline
+  annotations:
+    compliance.framework: 'ACSC Essential 8'
+    compliance.maturity: 'Level 3'
+    compliance.description: 'Fully aligned with mitigation strategy objectives'
+    compliance.recommended: 'High-security organizations'
+spec:
+  binding:
+    targetType:
+      - 'Microsoft.AzureAD.*'
+      - 'Microsoft.Exchange.*'
+      - 'Microsoft.SharePoint.*'
+      - 'Microsoft.Security.*'
+      - 'Microsoft.PowerPlatform.*'
+  
+  rule:
+    include:
+      # Include all ML1 and ML2 rules
+      - 'Essential8.ML1.*'
+      - 'Essential8.ML2.*'
+      
+      # Strategy 1: Application Control - Maximum Security
+      - 'Essential8.AzureAD.Applications.ZeroTrust'
+      - 'Essential8.SharePoint.Apps.WhitelistOnly'
+      - 'Essential8.PowerPlatform.DLP.Maximum'
+      - 'Essential8.Azure.ContainerSecurity.RuntimeProtection'
+      - 'Essential8.Security.ApplicationInsights.Monitoring'
+      
+      # Strategy 2: Patch Applications - Maximum Security
+      - 'Essential8.Azure.UpdateManagement.Immediate'
+      - 'Essential8.M365.UpdatePolicies.ZeroDelay'
+      - 'Essential8.Security.VulnerabilityResponse.Automated'
+      - 'Essential8.Security.ThreatHunting.Active'
+      
+      # Strategy 3: Configure Microsoft Office Macro Settings - Maximum Security
+      - 'Essential8.M365.Macros.Disabled'
+      - 'Essential8.Exchange.MacroFiltering.Complete'
+      - 'Essential8.SharePoint.MacroRestrictions.Complete'
+      - 'Essential8.Security.MacroAnalysis.Sandboxing'
+      
+      # Strategy 4: User Application Hardening - Maximum Security
+      - 'Essential8.M365.BrowserSecurity.Maximum'
+      - 'Essential8.AzureAD.ConditionalAccess.ZeroTrust'
+      - 'Essential8.Security.WebProtection.Maximum'
+      - 'Essential8.Security.URLRewriting.Active'
+      
+      # Strategy 5: Restrict Administrative Privileges - Maximum Security
+      - 'Essential8.AzureAD.PIM.Required'
+      - 'Essential8.AzureAD.AdminAccess.Monitored'
+      - 'Essential8.SharePoint.AdminAccess.Restricted'
+      - 'Essential8.Azure.RBAC.ZeroTrust'
+      - 'Essential8.Security.PrivilegedAccess.Workstations'
+      
+      # Strategy 6: Patch Operating Systems - Maximum Security
+      - 'Essential8.Azure.OSPatching.Immediate'
+      - 'Essential8.M365.WindowsUpdate.Immediate'
+      - 'Essential8.Security.OSHardening.Applied'
+      - 'Essential8.Security.ConfigurationBaselines.Enforced'
+      
+      # Strategy 7: Multi-factor Authentication - Maximum Security
+      - 'Essential8.AzureAD.MFA.PhishingResistant'
+      - 'Essential8.AzureAD.ConditionalAccess.Maximum'
+      - 'Essential8.Security.AuthenticationAnalytics.Active'
+      - 'Essential8.Security.IdentityProtection.Maximum'
+      
+      # Strategy 8: Regular Backups - Maximum Security
+      - 'Essential8.Azure.Backup.Immutable'
+      - 'Essential8.M365.Retention.Legal'
+      - 'Essential8.SharePoint.Backup.Offsite'
+      - 'Essential8.Security.BackupSecurity.Encrypted'
+      - 'Essential8.Security.DisasterRecovery.Tested'
+
+---
+# Essential 8 Comprehensive Baseline
+# All strategies at ML2 level for general organizational use
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.Comprehensive.Baseline
+  annotations:
+    compliance.framework: 'ACSC Essential 8'
+    compliance.description: 'Comprehensive Essential 8 implementation for enterprise'
+    compliance.recommended: 'All Australian organizations'
+spec:
+  rule:
+    include:
+      - 'Essential8.ML2.*'
+    exclude:
+      # Exclude rules that may not apply to all organizations
+      - 'Essential8.Azure.ContainerSecurity.*'  # Only if using containers
+      - 'Essential8.PowerPlatform.*'            # Only if using Power Platform
+
+---
+# Essential 8 Quick Assessment Baseline
+# Core requirements for rapid compliance check
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.QuickAssess.Baseline
+  annotations:
+    compliance.framework: 'ACSC Essential 8'
+    compliance.description: 'Quick assessment of core Essential 8 requirements'
+    compliance.purpose: 'Initial compliance evaluation'
+spec:
+  rule:
+    include:
+      # One key rule per strategy for quick assessment
+      - 'Essential8.AzureAD.Applications.Approved'        # Strategy 1
+      - 'Essential8.Azure.UpdateManagement.Enabled'       # Strategy 2  
+      - 'Essential8.M365.Macros.InternetBlocked'         # Strategy 3
+      - 'Essential8.M365.BrowserSecurity.Basic'          # Strategy 4
+      - 'Essential8.AzureAD.PIM.Enabled'                 # Strategy 5
+      - 'Essential8.Azure.OSPatching.Enabled'            # Strategy 6
+      - 'Essential8.AzureAD.MFA.PrivilegedAccounts'      # Strategy 7
+      - 'Essential8.Azure.Backup.Configured'             # Strategy 8
+
+---
+# Configuration options for all baselines
+apiVersion: github.com/microsoft/PSRule/v1
+kind: ModuleConfig
+metadata:
+  name: Essential8.Config
+spec:
+  configuration:
+    # Essential 8 specific configuration
+    Essential8:
+      # Patch management timeframes (hours)
+      PatchTimeframes:
+        Critical: 48          # Critical vulnerabilities
+        High: 168            # High vulnerabilities (1 week)
+        Medium: 720          # Medium vulnerabilities (30 days)
+        
+      # MFA requirements
+      MFA:
+        RequireForAllUsers: true
+        PhishingResistantRequired: false  # ML3 requirement
+        BlockLegacyAuth: true
+        
+      # Backup requirements  
+      Backup:
+        RetentionPeriod: 30   # Days
+        TestingFrequency: 90  # Days between tests
+        OffsiteRequired: true
+        
+      # Administrative privileges
+      AdminAccess:
+        JustInTimeRequired: true
+        MaxPrivilegedUsers: 10    # Percentage of total users
+        ReviewFrequency: 90       # Days
+        
+      # Application control
+      ApplicationControl:
+        WhitelistingRequired: true
+        CodeSigningRequired: false  # ML2+ requirement
+        
+    # Reporting configuration
+    Reporting:
+      IncludeRecommendations: true
+      IncludeEvidence: true
+      GroupByStrategy: true
+      MaturityScoring: true
