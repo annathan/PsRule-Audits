@@ -212,5 +212,4 @@ Export-ModuleMember -Variable Essential8Metadata
 # Rule execution configuration
 $PSRule = @{
     Include = @('Essential8.*.MFA.*')
-    Baseline = 'Essential8.ML2.Baseline'
-}
+    Baseline = 'Essential8.ML2.Baseline'}
