@@ -1,0 +1,37 @@
+# PSRule configuration for Essential 8 compliance testing
+
+# Binding configuration
+binding:
+  targetType:
+    - 'PSObject'
+  
+input:
+  format: Json
+  objectPath: '$'
+  pathIgnore:
+    - '*.md'
+    - 'docs/**'
+    - 'examples/**'
+    - '.git/**'
+    - 'Collectors/**'
+    - 'baselines/**'
+
+# Execution settings
+execution:
+  ruleExcluded: []
+
+# Output configuration
+output:
+  format: Wide
+  culture:
+    - 'en-AU'
+    - 'en-US'
+  encoding: UTF8
+  style: AzurePipelines
+
+# Logging configuration
+logging:
+  ruleFail: Error
+  rulePass: Information
+  limitDebug: []
+  limitVerbose: []

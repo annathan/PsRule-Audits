@@ -1,0 +1,473 @@
+{
+  "AssignedPlans": [
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "YammerEnterprise",
+      "ServicePlanId": "7547a3fe-08ee-4ccb-b430-5077c5041653"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "exchange",
+      "ServicePlanId": "33c4f319-9bdd-48d6-9c4d-410b750a4a5a"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "exchange",
+      "ServicePlanId": "9aaf7827-d63c-4b61-89c3-182f06f82e5c"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "Bing",
+      "ServicePlanId": "0d0c0d31-fae7-41f2-b909-eaf4d7f26dba"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "exchange",
+      "ServicePlanId": "a6520331-d7d4-4276-95f5-15c0933bc757"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "SharePoint",
+      "ServicePlanId": "c7699d2e-19aa-44de-8edf-1736da088ca1"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "RMSOnline",
+      "ServicePlanId": "31cf2cfc-6b0d-4adc-a336-88b724ed8122"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "SharePoint",
+      "ServicePlanId": "e95bec33-7c88-4a70-8e19-b10bd9d0c014"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "PowerAppsService",
+      "ServicePlanId": "92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "Sway",
+      "ServicePlanId": "a23b959c-7ce8-4e57-9140-b90eb88a9e97"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "ccibotsprod",
+      "ServicePlanId": "041fe683-03e4-45b6-b1af-c0cdc516daee"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "YammerEnterprise",
+      "ServicePlanId": "a82fbf69-b4d7-49f4-83a6-915b2cf354f4"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "OnlineService",
+      "ServicePlanId": "1fe6227d-3e01-46d0-9510-0acad4ff6e94"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "ProjectWorkManagement",
+      "ServicePlanId": "b737dad2-2f6c-4c65-90e3-ca563267e8b9"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "ProcessSimple",
+      "ServicePlanId": "0f9b09cb-62d1-4ff4-9129-43f4996f83f4"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "Chapter5FluidApp",
+      "ServicePlanId": "c4b8c31a-fb44-4c65-9837-a21f55fcabda"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "Bing",
+      "ServicePlanId": "94065c59-bc8e-4e8b-89e5-5138d471eaff"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "exchange",
+      "ServicePlanId": "199a5c09-e0ca-4e37-8f7c-b05d533e1ea2"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "ProjectProgramsAndPortfolios",
+      "ServicePlanId": "31b4e2fc-4cd6-4e7d-9c1b-41407303bd66"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "WevEngine",
+      "ServicePlanId": "b088306e-925b-44ab-baa0-63291c629a91"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "DynamicsNAV",
+      "ServicePlanId": "39b5c996-467e-4e60-bd62-46066f572726"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "MixedRealityCollaborationServices",
+      "ServicePlanId": "f0ff6ac6-297d-49cd-be34-6dfef97f0c28"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "MicrosoftCommunicationsOnline",
+      "ServicePlanId": "0feaeb32-d00e-4d66-bd5a-43b5b83db82c"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "LearningAppServiceInTeams",
+      "ServicePlanId": "b76fb638-6ba6-402a-b9f9-83d28acb3d86"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "Deskless",
+      "ServicePlanId": "8c7d2df8-86f0-4902-b2ed-a0458298f3b3"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "TeamspaceAPI",
+      "ServicePlanId": "57ff2da0-773e-42df-b2af-ffb7a2317929"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "To-Do",
+      "ServicePlanId": "5e62787c-c316-451f-b873-1d05acd4d12c"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "CRM",
+      "ServicePlanId": "4ff01e01-1ba7-4d71-8cf8-ce96c3bbcf14"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "exchange",
+      "ServicePlanId": "5bfe124c-bbdc-4494-8835-f1297d457d79"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "SharePoint",
+      "ServicePlanId": "db4d623d-b514-490b-b7ef-8885eee514de"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "CRM",
+      "ServicePlanId": "95b76021-6a53-4741-ab8b-1d1f3d66a95a"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "OfficeForms",
+      "ServicePlanId": "159f4cd6-e380-449f-a816-af1a9ef76344"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "M365Multi-TenantManagement",
+      "ServicePlanId": "6f23d6a9-adbf-481c-8538-b4c095654487"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "WevEngine",
+      "ServicePlanId": "0403bb98-9d17-4f94-b53e-eca56a7698a6"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "MicrosoftKaizala",
+      "ServicePlanId": "54fc630f-5a40-48ee-8965-af0503c1386e"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "VivaSkills",
+      "ServicePlanId": "13b6da2c-0d84-450e-9f69-a33e221387ca"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "WhiteboardServices",
+      "ServicePlanId": "b8afc642-032e-4de5-8c0a-507a7bba7e5d"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "MicrosoftOffice",
+      "ServicePlanId": "094e7854-93fc-4d55-b2c0-3ab5369ebdc1"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Deleted",
+      "Service": "SCO",
+      "ServicePlanId": "882e1d05-acd1-4ccb-8708-6ee03664b117"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "SharePoint",
+      "ServicePlanId": "a1ace008-72f3-4ea0-8dac-33b3a23a2472"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "MixedRealityCollaborationServices",
+      "ServicePlanId": "dcf9d2f4-772e-4434-b757-77a453cfbc02"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "MicrosoftStream",
+      "ServicePlanId": "3c53ea51-d578-46fa-a4c0-fd0a92809a60"
+    },
+    {
+      "AssignedDateTime": "2025-08-25T05:08:09Z",
+      "CapabilityStatus": "Enabled",
+      "Service": "MixedRealityCollaborationServices",
+      "ServicePlanId": "3efbd4ed-8958-4824-8389-1321f8730af8"
+    }
+  ],
+  "Branding": {
+    "BackgroundColor": null,
+    "BackgroundImage": null,
+    "BackgroundImageRelativeUrl": null,
+    "BannerLogo": null,
+    "BannerLogoRelativeUrl": null,
+    "CdnList": null,
+    "ContentCustomization": {
+      "AttributeCollection": null,
+      "AttributeCollectionRelativeUrl": null,
+      "RegistrationCampaign": null,
+      "RegistrationCampaignRelativeUrl": null
+    },
+    "CustomAccountResetCredentialsUrl": null,
+    "CustomCannotAccessYourAccountText": null,
+    "CustomCannotAccessYourAccountUrl": null,
+    "CustomCss": null,
+    "CustomCssRelativeUrl": null,
+    "CustomForgotMyPasswordText": null,
+    "CustomPrivacyAndCookiesText": null,
+    "CustomPrivacyAndCookiesUrl": null,
+    "CustomResetItNowText": null,
+    "CustomTermsOfUseText": null,
+    "CustomTermsOfUseUrl": null,
+    "Favicon": null,
+    "FaviconRelativeUrl": null,
+    "HeaderBackgroundColor": null,
+    "HeaderLogo": null,
+    "HeaderLogoRelativeUrl": null,
+    "Id": null,
+    "Localizations": null,
+    "LoginPageLayoutConfiguration": {
+      "IsFooterShown": null,
+      "IsHeaderShown": null,
+      "LayoutTemplateType": null
+    },
+    "LoginPageTextVisibilitySettings": {
+      "HideAccountResetCredentials": null,
+      "HideCannotAccessYourAccount": null,
+      "HideForgotMyPassword": null,
+      "HidePrivacyAndCookies": null,
+      "HideResetItNow": null,
+      "HideTermsOfUse": null
+    },
+    "SignInPageText": null,
+    "SquareLogo": null,
+    "SquareLogoDark": null,
+    "SquareLogoDarkRelativeUrl": null,
+    "SquareLogoRelativeUrl": null,
+    "UsernameHintText": null
+  },
+  "BusinessPhones": [
+    "0403769295"
+  ],
+  "CertificateBasedAuthConfiguration": null,
+  "City": "Cameron Park",
+  "Country": null,
+  "CountryLetterCode": "AU",
+  "CreatedDateTime": "2025-08-25T05:06:45Z",
+  "DefaultUsageLocation": null,
+  "DeletedDateTime": null,
+  "DisplayName": "Camnet Cybersecurity",
+  "Extensions": null,
+  "Id": "20162b4e-36e9-4134-bb80-3c65b0c0cf57",
+  "MarketingNotificationEmails": [],
+  "MobileDeviceManagementAuthority": {},
+  "OnPremisesLastSyncDateTime": null,
+  "OnPremisesSyncEnabled": null,
+  "PartnerTenantType": null,
+  "PostalCode": "2285",
+  "PreferredLanguage": "en",
+  "PrivacyProfile": {
+    "ContactEmail": null,
+    "StatementUrl": null
+  },
+  "ProvisionedPlans": [
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "RMSOnline"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "SharePoint"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "SharePoint"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "SharePoint"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "SharePoint"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "ProjectWorkManagement"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "MicrosoftCommunicationsOnline"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "exchange"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "exchange"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "exchange"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "exchange"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "exchange"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "YammerEnterprise"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "exchange"
+    },
+    {
+      "CapabilityStatus": "Enabled",
+      "ProvisioningStatus": "Success",
+      "Service": "MicrosoftCommunicationsOnline"
+    }
+  ],
+  "SecurityComplianceNotificationMails": [],
+  "SecurityComplianceNotificationPhones": [],
+  "State": "new south wales",
+  "Street": "54 Gaites Drive",
+  "TechnicalNotificationMails": [
+    "andrew@camnetcybersecurity.com.au"
+  ],
+  "TenantType": "AAD",
+  "VerifiedDomains": [
+    {
+      "Capabilities": "Email, OfficeCommunicationsOnline",
+      "IsDefault": false,
+      "IsInitial": true,
+      "Name": "CamnetCybersecurity.onmicrosoft.com",
+      "Type": "Managed"
+    },
+    {
+      "Capabilities": "Email, OfficeCommunicationsOnline, Intune",
+      "IsDefault": true,
+      "IsInitial": false,
+      "Name": "camnetcybersecurity.com.au",
+      "Type": "Managed"
+    },
+    {
+      "Capabilities": "Email, OfficeCommunicationsOnline, Intune",
+      "IsDefault": false,
+      "IsInitial": false,
+      "Name": "camnetcybersecurity.com",
+      "Type": "Managed"
+    },
+    {
+      "Capabilities": "Email, OfficeCommunicationsOnline, Intune",
+      "IsDefault": false,
+      "IsInitial": false,
+      "Name": "camnetcyber.au",
+      "Type": "Managed"
+    },
+    {
+      "Capabilities": "Email, OfficeCommunicationsOnline, Intune",
+      "IsDefault": false,
+      "IsInitial": false,
+      "Name": "camnetcyber.com",
+      "Type": "Managed"
+    },
+    {
+      "Capabilities": "Email, OfficeCommunicationsOnline, Intune",
+      "IsDefault": false,
+      "IsInitial": false,
+      "Name": "camnetcyber.com.au",
+      "Type": "Managed"
+    }
+  ],
+  "AdditionalProperties": {
+    "directorySizeQuota": {
+      "used": 202,
+      "total": 300000
+    },
+    "onPremisesSyncStatus": []
+  }
+}

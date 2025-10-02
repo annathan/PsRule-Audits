@@ -1,0 +1,6 @@
+[{
+  "UserPrincipalName": "admin@contoso.com",
+  "StrongAuthenticationRequirements": [{ "State": "Enforced" }],
+  "StrongAuthenticationMethods": [{ "MethodType": "AuthenticatorApp", "IsDefault": true }],
+  "AssignedRoles": [{ "DisplayName": "Global Administrator" }]
+}]

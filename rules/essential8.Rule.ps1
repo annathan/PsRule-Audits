@@ -1,6 +1,15 @@
-﻿Rule ''E8.MFA.AdminsEnabled'' -Tag @{ e8 = ''MFA''; maturity = ''ML2'' } -Level Error {
-    $TargetObject.mfaForAdmins -eq $true
+﻿# Synopsis: Essential 8 - Basic test rules
+# Description: Simple test rules to verify PSRule is working
+
+# Test rule to verify PSRule is working
+Rule 'Essential8.Test.Simple' {
+    $Assert.Pass()
 }
-Rule ''E8.RegularBackups.Enabled'' -Tag @{ e8 = ''RegularBackups''; maturity = ''ML2'' } -Level Warning {
-    $TargetObject.backupsEnabled -eq $true
+
+# Simple MFA test rule
+Rule 'Essential8.AzureAD.MFA.Test' -Type 'PSObject' -If { 
+    $TargetObject.PSObject.Properties.Name -contains 'UserPrincipalName' 
+} {
+    # This rule will pass if we find any user data
+    $Assert.HasField($TargetObject, 'UserPrincipalName')
 }

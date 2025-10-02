@@ -9,7 +9,7 @@ spec:
       e8: /.*/
       maturity: /ML2/
   include:
-    - ./rules/*.ps1
+    - ./rules/*.Rule.ps1
 '@
 
 New-Item -ItemType Directory -Path .\.ps-rule -ErrorAction SilentlyContinue | Out-Null

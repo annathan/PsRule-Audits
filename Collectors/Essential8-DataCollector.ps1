@@ -30,11 +30,10 @@ $RequiredModules = @(
     'Microsoft.Graph.Authentication',
     'Microsoft.Graph.Users', 
     'Microsoft.Graph.Identity.SignIns',
-    'Microsoft.Graph.Identity.ConditionalAccess',
+    'Microsoft.Graph.Identity.DirectoryManagement',
     'Microsoft.Graph.Applications',
     'ExchangeOnlineManagement',
-    'PnP.PowerShell',
-    'Microsoft.Graph.Security'
+    'PnP.PowerShell'
 )
 
 Write-Host "Checking required modules..." -ForegroundColor Yellow
@@ -134,8 +133,14 @@ function Get-Essential8AzureADData {
         
         # 3. Conditional Access policies
         Write-Host "  - Collecting Conditional Access policies..." -ForegroundColor Gray
-        $ConditionalAccessPolicies = Get-MgIdentityConditionalAccessPolicy -All
-        $ConditionalAccessPolicies | ConvertTo-Json -Depth 5 | Out-File (Join-Path $AzureADPath "ConditionalAccessPolicies.json")
+        try {
+            $ConditionalAccessPolicies = Get-MgIdentityConditionalAccessPolicy -All
+            $ConditionalAccessPolicies | ConvertTo-Json -Depth 5 | Out-File (Join-Path $AzureADPath "ConditionalAccessPolicies.json")
+        } catch {
+            Write-Warning "Could not collect Conditional Access policies: $($_.Exception.Message)"
+            # Create empty file to prevent errors
+            @() | ConvertTo-Json | Out-File (Join-Path $AzureADPath "ConditionalAccessPolicies.json")
+        }
         
         # 4. Service Principals and Applications
         Write-Host "  - Collecting service principals..." -ForegroundColor Gray

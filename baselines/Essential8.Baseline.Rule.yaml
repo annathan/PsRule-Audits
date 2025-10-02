@@ -1,0 +1,69 @@
+# Essential 8 Baseline Definitions
+# Defines maturity levels and rule inclusions for Essential 8 compliance testing
+
+---
+# Maturity Level 1 Baseline - Basic implementation
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.ML1
+  annotations:
+    summary: Essential 8 Maturity Level 1 - Baseline Security
+spec:
+  rule:
+    tag:
+      MaturityLevel:
+        - ML1
+
+---
+# Maturity Level 2 Baseline - Target for most organizations
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.ML2
+  annotations:
+    summary: Essential 8 Maturity Level 2 - Recommended for Government and Enterprise
+spec:
+  rule:
+    tag:
+      MaturityLevel:
+        - ML1
+        - ML2
+
+---
+# Maturity Level 3 Baseline - Advanced security posture
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.ML3
+  annotations:
+    summary: Essential 8 Maturity Level 3 - Advanced Security
+spec:
+  rule:
+    tag:
+      MaturityLevel:
+        - ML1
+        - ML2
+        - ML3
+
+---
+# All Essential 8 Rules - Complete assessment
+apiVersion: github.com/microsoft/PSRule/v1
+kind: Baseline
+metadata:
+  name: Essential8.All
+  annotations:
+    summary: All Essential 8 Rules - Comprehensive Assessment
+spec:
+  rule:
+    tag:
+      E8:
+        - E8-1  # Application Control
+        - E8-2  # Patch Applications
+        - E8-3  # Macro Security
+        - E8-4  # User Application Hardening
+        - E8-5  # Restrict Administrative Privileges
+        - E8-6  # Patch Operating Systems
+        - E8-7  # Multi-Factor Authentication
+        - E8-8  # Regular Backups
+

@@ -1,0 +1,647 @@
+[
+  {
+    "DisplayName": "Microsoft Windows AutoPilot Service API",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "O365 Demeter",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Teams Biometric Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Rights Management Services Default",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Information Protection Sync Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Skype and Teams Tenant Admin API",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "OfficeClientService",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Intune CMDeviceService",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft password reset service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "MCAPI Authorization Prod",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Teams Services",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Conferencing Virtual Assistant",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Conference Auto Attendant",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "ComplianceAuthServer",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Teams UIS",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Device Management EMM API",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "IAM Supportability",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Portfolios",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "AzureSupportCenter",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Teams - Teams And Channels Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Skype Presence Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "OMSAuthorizationServicePROD",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Azure Credential Configuration Endpoint Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Azure Workflow",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Office 365 Portal",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Azure ESTS Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Sway",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Group Configuration Processor",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office365 Shell SS-Server Default",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Signup",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Teams ATP Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Dataverse",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office 365 Configure",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "SalesInsightsWebApp",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Graph Change Tracking",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Bing",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "SPAuthEvent",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Information Protection API",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Narada Notification Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "CompliancePolicy",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft.SMIT",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "SubscriptionRP",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "IPSubstrate",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Connectors",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Teams NRT DLP Ingestion Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "MS Teams Griffin Assistant",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "WeveEngine",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Configuration Manager Microservice",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "People Profile Event Proxy",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Approval Management",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Viva Engage",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Privacy Management",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Azure AD Identity Protection",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Graph",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "O365 Secure Score",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "o365.servicecommunications.microsoft.com",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "OCaaS Experience Management Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "M365 App Management Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "PushChannel",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Rights Management Services",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Customer Service Trial PVA",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "IC3 Long Running Operations Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Skype for Business Online",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office 365 Exchange Online",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Mobile Application Management",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Substrate-FileWatcher",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "OCaaS Client Interaction Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "AAD Request Verification Service - PROD",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "ProjectWorkManagement",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Cortana at Work Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Forms",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "DeploymentScheduler",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Graph Command Line Tools",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "M365 License Manager",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office Shredding Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Device Management Checkin",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Customer Service Trial PVA - readonly",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "M365 Admin Services",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Intune API",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Teams AadSync",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Flow Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Skype Teams Calling API Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "OCaaS Worker Services",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft 365 Security and Compliance Center",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Cortana Runtime Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Teams Chat Aggregator",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Windows 365",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Flow CDS Integration Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Teams Graph Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Intune Service Discovery",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Intune Advanced Threat Protection Integration",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Windows Azure Active Directory",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Media Analysis and Transformation Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Dynamics Data Integration",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft App Access Panel",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office 365 Enterprise Insights",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Teams NRT DLP Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Service Trust",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "IC3 Tenant Provisioning",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "WindowsUpdate-Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office365 Zoom",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Meeting Migration Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft To-Do",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft SharePoint Online - SharePoint Home",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Dynamics Lifecycle services",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office 365 Management APIs",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Messaging Bot API Application",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "TenantSearchProcessors",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Intune SCCM Connector",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "SharePoint Notification Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office 365 SharePoint Online",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Exchange Rbac",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Power BI Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Customer Experience Platform PROD",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Exchange Online Protection",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Skype Core Calling Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "CABProvisioning",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Teams AuthSvc",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "SharePoint Home Notifier",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office 365 Information Protection",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Virtual Visits App",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "PowerApps-Advisor",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "OneProfile Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Azure Resource Manager",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Office365DirectorySynchronizationService",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Substrate Instant Revocation Pipeline",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "PowerApps Service",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Substrate Management",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  },
+  {
+    "DisplayName": "Microsoft Intune",
+    "KeyCredentials": [],
+    "PasswordCredentials": []
+  }
+]

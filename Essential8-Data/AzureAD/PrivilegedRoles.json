@@ -1,0 +1,27 @@
+[
+  {
+    "RoleName": "Global Administrator",
+    "RoleId": "5e11b6d4-7f90-4366-acab-2aa221c04111",
+    "Members": {
+      "DeletedDateTime": null,
+      "Id": "019a6e44-e62c-40d2-bbd4-b7a741087bb7",
+      "AdditionalProperties": {
+        "@odata.type": "#microsoft.graph.user",
+        "businessPhones": [
+          "0403769295"
+        ],
+        "displayName": "Andrew Nathan",
+        "givenName": "Andrew",
+        "mail": "Andrew@camnetcyber.au",
+        "preferredLanguage": "en",
+        "surname": "Nathan",
+        "userPrincipalName": "Andrew@camnetcyber.au"
+      }
+    }
+  },
+  {
+    "RoleName": "Azure AD Joined Device Local Administrator",
+    "RoleId": "a3e1e60c-80cd-42f4-b2b0-fb1eaf427e45",
+    "Members": null
+  }
+]

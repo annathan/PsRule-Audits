@@ -1,26 +1,24 @@
 {
-  "CollectionCompleted": "2025-08-25T15:49:38.9136257+10:00",
-  "Duration": {
-    "Ticks": 40670898,
-    "Days": 0,
-    "Hours": 0,
-    "Milliseconds": 67,
-    "Microseconds": 89,
-    "Nanoseconds": 800,
-    "Minutes": 0,
-    "Seconds": 4,
-    "TotalDays": 4.707279861111111E-05,
-    "TotalHours": 0.0011297471666666668,
-    "TotalMilliseconds": 4067.0898,
-    "TotalMicroseconds": 4067089.8,
-    "TotalNanoseconds": 4067089800.0,
-    "TotalMinutes": 0.06778483,
-    "TotalSeconds": 4.0670898
-  },
-  "CollectionDate": "2025-08-25T15:49:34.8476038+10:00",
+  "AvailableModules": [
+    "Microsoft.Graph.Authentication",
+    "Microsoft.Graph.Users",
+    "Microsoft.Graph.Identity.SignIns",
+    "Microsoft.Graph.Identity.DirectoryManagement",
+    "Microsoft.Graph.Applications",
+    "ExchangeOnlineManagement",
+    "PnP.PowerShell"
+  ],
+  "Version": "2.0",
   "TenantId": "camnetcybersecurity.onmicrosoft.com",
-  "Version": "1.0",
+  "Status": "Completed with limitations",
+  "CollectionDate": "2025-10-02T10:45:15.9534694+10:00",
+  "MissingModules": [],
   "CollectedServices": [
     "All"
+  ],
+  "Notes": [
+    "Some data collection may be limited due to authentication or permission issues",
+    "This is normal for Essential 8 compliance testing",
+    "Focus on the data that was successfully collected"
   ]
 }
