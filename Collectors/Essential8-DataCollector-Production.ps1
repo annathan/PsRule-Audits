@@ -177,7 +177,15 @@ try {
         Connect-MgGraph -TenantId $TenantId -ClientSecretCredential $Credential -ErrorAction Stop
     } else {
         Write-Host "  Using interactive authentication..." -ForegroundColor Gray
+        # Force interactive authentication with proper context
         Connect-MgGraph -TenantId $TenantId -Scopes $GraphScopes -ErrorAction Stop
+        # Verify connection by getting context
+        $Context = Get-MgContext
+        if ($Context) {
+            Write-CollectionSuccess "Microsoft Graph context verified"
+        } else {
+            throw "Failed to establish Microsoft Graph context"
+        }
     }
     
     Write-CollectionSuccess "Connected to Microsoft Graph"
@@ -293,11 +301,12 @@ if ($Services -contains 'All' -or $Services -contains 'Exchange') {
         try {
             Write-Host "  Connecting to Exchange Online..." -ForegroundColor Gray
             
-            if ($UseApplicationAuth -and $ApplicationId -and $CertificateThumbprint) {
-                Connect-ExchangeOnline -AppId $ApplicationId -CertificateThumbprint $CertificateThumbprint -Organization $TenantId -ErrorAction Stop
-            } else {
-                Connect-ExchangeOnline -ErrorAction Stop
-            }
+        if ($UseApplicationAuth -and $ApplicationId -and $CertificateThumbprint) {
+            Connect-ExchangeOnline -AppId $ApplicationId -CertificateThumbprint $CertificateThumbprint -Organization $TenantId -ErrorAction Stop
+        } else {
+            # Use modern authentication with proper context
+            Connect-ExchangeOnline -UserPrincipalName (Get-MgContext).Account -ErrorAction Stop
+        }
             
             Write-CollectionSuccess "Connected to Exchange Online"
             
@@ -393,6 +402,8 @@ if ($Services -contains 'All' -or $Services -contains 'SharePoint') {
             if ($SkipInteractiveAuth) {
                 Write-CollectionWarning "Interactive authentication skipped - SharePoint data may be limited"
             } else {
+                # Use modern authentication with proper context
+                $UserPrincipalName = (Get-MgContext).Account
                 Connect-PnPOnline -Url $AdminUrl -Interactive -ErrorAction Stop
                 Write-CollectionSuccess "Connected to SharePoint Online"
                 
@@ -503,7 +514,9 @@ if ($Services -contains 'All' -or $Services -contains 'Teams') {
     if (Test-ModuleAvailable 'MicrosoftTeams') {
         try {
             Write-Host "  Connecting to Microsoft Teams..." -ForegroundColor Gray
-            Connect-MicrosoftTeams -ErrorAction Stop
+            # Use modern authentication with proper context
+            $UserPrincipalName = (Get-MgContext).Account
+            Connect-MicrosoftTeams -AccountId $UserPrincipalName -ErrorAction Stop
             Write-CollectionSuccess "Connected to Microsoft Teams"
             
             # Teams Policies
@@ -617,9 +630,11 @@ Write-Host "  Failed modules: $($FailedModules.Count)" -ForegroundColor $(if($Fa
 
 Write-Host ""
 Write-Host "📋 Service Coverage:" -ForegroundColor Cyan
-foreach ($Service in $CollectionMetadata.DataCollectionSummary.PSObject.Properties) {
-    $Status = if ($Service.Value -gt 0) { "✅ $($Service.Value) files" } else { "❌ No data" }
-    Write-Host "  $($Service.Name): $Status" -ForegroundColor $(if($Service.Value -gt 0){'Green'}else{'Red'})
+$ServiceNames = @('AzureAD', 'Exchange', 'SharePoint', 'Security', 'Teams', 'PowerPlatform')
+foreach ($ServiceName in $ServiceNames) {
+    $FileCount = $CollectionMetadata.DataCollectionSummary.$ServiceName
+    $Status = if ($FileCount -gt 0) { "✅ $FileCount files" } else { "❌ No data" }
+    Write-Host "  $ServiceName`: $Status" -ForegroundColor $(if($FileCount -gt 0){'Green'}else{'Red'})
 }
 
 Write-Host ""
