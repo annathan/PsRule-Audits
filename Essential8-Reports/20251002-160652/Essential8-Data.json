@@ -1,0 +1,844 @@
+{
+  "PassedRules": 11,
+  "Strategies": [
+    {
+      "Name": "E8-1: Application Control",
+      "TotalRules": 150,
+      "FailedRules": 150,
+      "PassedRules": 0
+    },
+    {
+      "Name": "E8-5: Restrict Administrative Privileges",
+      "TotalRules": 5,
+      "FailedRules": 0,
+      "PassedRules": 5
+    },
+    {
+      "Name": "E8-7: Multi-Factor Authentication",
+      "TotalRules": 8,
+      "FailedRules": 2,
+      "PassedRules": 6
+    }
+  ],
+  "ComplianceScore": 6.7,
+  "FailedRules": 152,
+  "Results": [
+    {
+      "Recommendation": "Privileged accounts should be dedicated admin accounts, not regular user accounts",
+      "RuleName": "Essential8.E8-5.AzureAD.Admin.DedicatedAccounts",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "All privileged accounts must have MFA enforced",
+      "RuleName": "Essential8.E8-5.AzureAD.Admin.MFARequired",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Multi-factor authentication should be enabled for all users",
+      "RuleName": "Essential8.E8-7.AzureAD.MFA.AllUsersEnabled",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Privileged accounts must have MFA enforced, not just enabled",
+      "RuleName": "Essential8.E8-7.AzureAD.MFA.PrivilegedEnforced",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Users should use phishing-resistant MFA methods (Authenticator app, FIDO2, Windows Hello)",
+      "RuleName": "Essential8.E8-7.AzureAD.MFA.PhishingResistant",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Emergency access accounts should be properly configured and monitored",
+      "RuleName": "Essential8.E8-7.AzureAD.EmergencyAccess",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Privileged accounts should be dedicated admin accounts, not regular user accounts",
+      "RuleName": "Essential8.E8-5.AzureAD.Admin.DedicatedAccounts",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "All privileged accounts must have MFA enforced",
+      "RuleName": "Essential8.E8-5.AzureAD.Admin.MFARequired",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Multi-factor authentication should be enabled for all users",
+      "RuleName": "Essential8.E8-7.AzureAD.MFA.AllUsersEnabled",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Privileged accounts must have MFA enforced, not just enabled",
+      "RuleName": "Essential8.E8-7.AzureAD.MFA.PrivilegedEnforced",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Users should use phishing-resistant MFA methods (Authenticator app, FIDO2, Windows Hello)",
+      "RuleName": "Essential8.E8-7.AzureAD.MFA.PhishingResistant",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Emergency access accounts should be properly configured and monitored",
+      "RuleName": "Essential8.E8-7.AzureAD.EmergencyAccess",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Limit Global Administrator role assignments to 2-5 accounts maximum",
+      "RuleName": "Essential8.E8-5.AzureAD.Admin.GlobalAdminCount",
+      "Outcome": "Pass"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    },
+    {
+      "Recommendation": "Service principals should use certificate-based authentication where possible",
+      "RuleName": "Essential8.E8-1.AzureAD.ServicePrincipals.Credentials",
+      "Outcome": "Fail"
+    }
+  ],
+  "TotalRules": 163,
+  "Timestamp": "2025-10-02 16:06:55"
+}

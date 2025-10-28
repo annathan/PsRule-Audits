@@ -1,0 +1,86 @@
+[
+  {
+    "id": "MFA-State-001",
+    "title": "MFA enabled for user",
+    "targetPath": "$.StrongAuthenticationRequirements[0].State",
+    "evaluator": "equals",
+    "expectedType": "string",
+    "expectedValue": "Enforced",
+    "evidencePath": "$.StrongAuthenticationRequirements",
+    "severity": "high",
+    "whyItMatters": "MFA reduces account takeover risk by requiring additional authentication factors.",
+    "remediation": "Enable MFA for all user accounts in Azure AD."
+  },
+  {
+    "id": "MFA-Methods-002",
+    "title": "Phishing-resistant MFA methods configured",
+    "targetPath": "$.StrongAuthenticationMethods",
+    "evaluator": "arrayLength>=1",
+    "expectedType": "array",
+    "expectedValue": 1,
+    "evidencePath": "$.StrongAuthenticationMethods",
+    "severity": "high",
+    "whyItMatters": "Phishing-resistant methods prevent SMS-based attacks and provide stronger security.",
+    "remediation": "Configure Authenticator app, FIDO2, or Windows Hello for Business as MFA methods."
+  },
+  {
+    "id": "MFA-MethodType-003",
+    "title": "Authenticator app method available",
+    "targetPath": "$.StrongAuthenticationMethods[*].MethodType",
+    "evaluator": "contains",
+    "expectedType": "array",
+    "expectedValue": "AuthenticatorApp",
+    "evidencePath": "$.StrongAuthenticationMethods",
+    "severity": "medium",
+    "whyItMatters": "Authenticator apps provide better security than SMS-based MFA.",
+    "remediation": "Enable Microsoft Authenticator app as an MFA method for users."
+  },
+  {
+    "id": "Admin-Roles-004",
+    "title": "User has administrative roles",
+    "targetPath": "$.AssignedRoles",
+    "evaluator": "type",
+    "expectedType": "array",
+    "expectedValue": "array",
+    "evidencePath": "$.AssignedRoles",
+    "severity": "medium",
+    "whyItMatters": "Administrative roles should be properly assigned and monitored.",
+    "remediation": "Review and properly assign administrative roles to users."
+  },
+  {
+    "id": "Account-Status-005",
+    "title": "User account is enabled",
+    "targetPath": "$.AccountEnabled",
+    "evaluator": "equals",
+    "expectedType": "boolean",
+    "expectedValue": true,
+    "evidencePath": "$.AccountEnabled",
+    "severity": "low",
+    "whyItMatters": "Enabled accounts can be used for authentication and access.",
+    "remediation": "Ensure user accounts are properly enabled for access."
+  },
+  {
+    "id": "Global-Admin-Count-006",
+    "title": "Global Administrator count within limits",
+    "targetPath": "$.Members",
+    "evaluator": "arrayLength<=5",
+    "expectedType": "array",
+    "expectedValue": 5,
+    "evidencePath": "$.Members",
+    "severity": "high",
+    "whyItMatters": "Too many Global Administrators increases security risk and attack surface.",
+    "remediation": "Limit Global Administrator role assignments to 2-5 accounts maximum."
+  },
+  {
+    "id": "User-Principal-Name-007",
+    "title": "User Principal Name is valid",
+    "targetPath": "$.UserPrincipalName",
+    "evaluator": "exists",
+    "expectedType": "string",
+    "expectedValue": null,
+    "evidencePath": "$.UserPrincipalName",
+    "severity": "medium",
+    "whyItMatters": "Valid UPN is required for user identification and authentication.",
+    "remediation": "Ensure all users have valid User Principal Names configured."
+  }
+]

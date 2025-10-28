@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential 8 Advanced Compliance Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        
+        .header { background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 40px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; font-weight: 300; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.9; margin-bottom: 20px; }
+        .header .meta { font-size: 0.9em; opacity: 0.8; }
+        
+        .nav-tabs { background: #34495e; padding: 0; display: flex; }
+        .nav-tab { padding: 15px 25px; background: #34495e; color: white; border: none; cursor: pointer; font-size: 1em; transition: all 0.3s; }
+        .nav-tab:hover { background: #2c3e50; }
+        .nav-tab.active { background: #3498db; }
+        
+        .tab-content { display: none; padding: 30px; }
+        .tab-content.active { display: block; }
+        
+        .summary-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .summary-card { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; cursor: pointer; transition: transform 0.3s; }
+        .summary-card:hover { transform: translateY(-5px); }
+        .summary-card h3 { font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; opacity: 0.8; }
+        .summary-card .value { font-size: 2em; font-weight: bold; margin-bottom: 5px; }
+        
+        .action-bar { padding: 20px; background: #e9ecef; display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+        .action-btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; }
+        .action-btn.primary { background: #007bff; color: white; }
+        .action-btn.primary:hover { background: #0056b3; }
+        .action-btn.success { background: #28a745; color: white; }
+        .action-btn.success:hover { background: #1e7e34; }
+        .action-btn.warning { background: #ffc107; color: #212529; }
+        .action-btn.warning:hover { background: #e0a800; }
+        .action-btn.danger { background: #dc3545; color: white; }
+        .action-btn.danger:hover { background: #c82333; }
+        .action-btn.info { background: #17a2b8; color: white; }
+        .action-btn.info:hover { background: #138496; }
+        
+        .findings-section { padding: 30px; }
+        .finding-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #ddd; }
+        .finding-card.passed { border-left-color: #28a745; }
+        .finding-card.failed { border-left-color: #dc3545; }
+        .finding-card.warning { border-left-color: #ffc107; }
+        
+        .finding-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .finding-title { font-size: 1.1em; font-weight: 600; color: #2c3e50; }
+        .finding-status { padding: 4px 8px; border-radius: 15px; font-size: 0.8em; font-weight: bold; text-transform: uppercase; }
+        .finding-status.passed { background: #d4edda; color: #155724; }
+        .finding-status.failed { background: #f8d7da; color: #721c24; }
+        .finding-status.warning { background: #fff3cd; color: #856404; }
+        
+        .finding-details { margin-top: 15px; }
+        .finding-detail { margin-bottom: 10px; }
+        .finding-detail strong { color: #495057; }
+        .finding-detail pre { background: #f8f9fa; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto; }
+        
+        .severity-badge { padding: 2px 6px; border-radius: 10px; font-size: 0.7em; font-weight: bold; text-transform: uppercase; }
+        .severity-badge.high { background: #f8d7da; color: #721c24; }
+        .severity-badge.medium { background: #fff3cd; color: #856404; }
+        .severity-badge.low { background: #d1ecf1; color: #0c5460; }
+        
+        .filters { padding: 20px; background: #f8f9fa; border-bottom: 1px solid #dee2e6; display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+        .filter-group { display: flex; align-items: center; gap: 10px; }
+        .filter-label { font-weight: 600; color: #495057; }
+        .filter-select, .filter-input { padding: 8px 12px; border: 1px solid #ced4da; border-radius: 4px; font-size: 0.9em; }
+        
+        .success-message { background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin: 10px 0; border: 1px solid #c3e6cb; }
+        .error-message { background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin: 10px 0; border: 1px solid #f5c6cb; }
+        
+        .report-meta { background: #e9ecef; padding: 20px; text-align: center; font-size: 0.9em; color: #6c757d; }
+        
+        .rule-type { padding: 2px 8px; border-radius: 12px; font-size: 0.7em; font-weight: bold; text-transform: uppercase; }
+        .rule-type.simple { background: #e3f2fd; color: #1976d2; }
+        .rule-type.composite { background: #f3e5f5; color: #7b1fa2; }
+        .rule-type.dependent { background: #e8f5e8; color: #388e3c; }
+        .rule-type.custom { background: #fff3e0; color: #f57c00; }
+        
+        .loading { text-align: center; padding: 40px; }
+        .error { background: #f8d7da; color: #721c24; padding: 20px; border-radius: 5px; margin: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ Essential 8 Advanced Compliance Report</h1>
+            <div class="subtitle">Advanced Rule-Based Security Assessment with Interactive Features</div>
+            <div class="meta" id="generatedAt">Loading...</div>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">📊 Overview</button>
+            <button class="nav-tab" onclick="showTab('findings')">🔍 Findings</button>
+            <button class="nav-tab" onclick="showTab('rules')">📋 Rules</button>
+            <button class="nav-tab" onclick="showTab('export')">📥 Export</button>
+        </div>
+        
+        <div id="overview" class="tab-content active">
+            <div class="summary-section">
+                <h2>📊 Compliance Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-card" onclick="showTab('findings')">
+                        <h3>Total Checks</h3>
+                        <div class="value" id="totalChecks">-</div>
+                    </div>
+                    <div class="summary-card" onclick="filterFindings('passed')">
+                        <h3>Passed</h3>
+                        <div class="value" style="color: #2ecc71;" id="passed">-</div>
+                    </div>
+                    <div class="summary-card" onclick="filterFindings('failed')">
+                        <h3>Failed</h3>
+                        <div class="value" style="color: #e74c3c;" id="failed">-</div>
+                    </div>
+                    <div class="summary-card" onclick="filterFindings('warning')">
+                        <h3>Warnings</h3>
+                        <div class="value" style="color: #f39c12;" id="warnings">-</div>
+                    </div>
+                    <div class="summary-card" onclick="showTab('findings')">
+                        <h3>Compliance Score</h3>
+                        <div class="value" id="complianceScore">-</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="padding: 30px;">
+                <h2>🎯 Key Actions Required</h2>
+                <div class="action-bar">
+                    <button class="action-btn primary" onclick="downloadActionPlan()">
+                        🔧 Download Action Plan
+                    </button>
+                    <button class="action-btn warning" onclick="filterFindings('failed')">
+                        ⚠️ Focus on Failed Rules
+                    </button>
+                    <button class="action-btn success" onclick="downloadCsv()">
+                        📊 Download CSV Report
+                    </button>
+                    <button class="action-btn danger" onclick="downloadJson()">
+                        💾 Download Raw Data
+                    </button>
+                    <button class="action-btn info" onclick="showAdvancedRules()">
+                        🔬 View Advanced Rules
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="findings" class="tab-content">
+            <div class="filters">
+                <div class="filter-group">
+                    <label class="filter-label">Filter by Status:</label>
+                    <select class="filter-select" id="statusFilter" onchange="applyFilters()">
+                        <option value="all">All Status</option>
+                        <option value="passed">Passed Only</option>
+                        <option value="failed">Failed Only</option>
+                        <option value="warning">Warnings Only</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Filter by Severity:</label>
+                    <select class="filter-select" id="severityFilter" onchange="applyFilters()">
+                        <option value="all">All Severity</option>
+                        <option value="high">High Only</option>
+                        <option value="medium">Medium Only</option>
+                        <option value="low">Low Only</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Search Findings:</label>
+                    <input type="text" class="filter-input" id="searchFilter" placeholder="Search findings..." onkeyup="applyFilters()">
+                </div>
+                <button class="action-btn primary" onclick="clearFilters()">Clear Filters</button>
+            </div>
+            
+            <div id="findingsContainer">
+                <div class="loading">Loading findings...</div>
+            </div>
+        </div>
+        
+        <div id="rules" class="tab-content">
+            <div style="padding: 30px;">
+                <h2>📋 Advanced Rule Types</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; border-left: 4px solid #1976d2;">
+                        <h3>🔹 Simple Rules</h3>
+                        <p>Basic evaluators: equals, contains, exists, arrayLength</p>
+                        <div class="rule-type simple">Simple</div>
+                    </div>
+                    <div style="background: #f3e5f5; padding: 20px; border-radius: 8px; border-left: 4px solid #7b1fa2;">
+                        <h3>🔸 Composite Rules</h3>
+                        <p>AND/OR logic combining multiple conditions</p>
+                        <div class="rule-type composite">Composite</div>
+                    </div>
+                    <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; border-left: 4px solid #388e3c;">
+                        <h3>🔹 Dependent Rules</h3>
+                        <p>Rules that depend on other rules passing first</p>
+                        <div class="rule-type dependent">Dependent</div>
+                    </div>
+                    <div style="background: #fff3e0; padding: 20px; border-radius: 8px; border-left: 4px solid #f57c00;">
+                        <h3>🔸 Custom Rules</h3>
+                        <p>PowerShell expressions for complex validation</p>
+                        <div class="rule-type custom">Custom</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="export" class="tab-content">
+            <div style="padding: 30px;">
+                <h2>📥 Export & Download</h2>
+                
+                <div id="downloadMessages"></div>
+                
+                <div style="background: #f8f9fa; padding: 30px; margin: 20px 0; border-radius: 8px;">
+                    <h3>📊 Available Downloads</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h4>📋 Action Plan</h4>
+                            <p>Prioritized remediation steps</p>
+                            <button class="action-btn primary" onclick="downloadActionPlan()">
+                                📋 Download Action Plan
+                            </button>
+                        </div>
+                        
+                        <div style="background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h4>📊 CSV Report</h4>
+                            <p>Spreadsheet format for analysis</p>
+                            <button class="action-btn success" onclick="downloadCsv()">
+                                📊 Download CSV
+                            </button>
+                        </div>
+                        
+                        <div style="background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h4>💾 JSON Data</h4>
+                            <p>Raw compliance data</p>
+                            <button class="action-btn danger" onclick="downloadJson()">
+                                💾 Download JSON
+                            </button>
+                        </div>
+                        
+                        <div style="background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <h4>🖨️ Print Report</h4>
+                            <p>Print-friendly version</p>
+                            <button class="action-btn info" onclick="printReport()">
+                                🖨️ Print Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="report-meta">
+            <div id="source">Loading...</div>
+            <div id="recordCount">Loading...</div>
+        </div>
+    </div>
+    
+    <script>
+        // Embedded advanced evaluation data
+        const evaluationData = {
+            "report": {
+                "generatedAt": "2025-10-03T11:33:54Z",
+                "source": "Essential 8 Advanced Compliance Assessment",
+                "inputRecords": 2,
+                "rulesEvaluated": 7,
+                "parallelProcessing": false
+            },
+            "summary": {
+                "totalChecks": 14,
+                "passed": 0,
+                "failed": 10,
+                "warning": 4,
+                "complianceScore": 0
+            },
+            "findings": [
+                {
+                    "status": "failed",
+                    "ruleId": "MFA-State-001",
+                    "remediation": "Enable MFA for all user accounts in Azure AD.",
+                    "severity": "high",
+                    "targetPath": "$.StrongAuthenticationRequirements[0].State",
+                    "title": "MFA enabled for user",
+                    "evaluationResult": "Value comparison: expected 'Enforced', got 'null'",
+                    "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}",
+                    "whyItMatters": "MFA reduces account takeover risk by requiring additional authentication factors."
+                },
+                {
+                    "status": "failed",
+                    "ruleId": "MFA-Methods-002",
+                    "remediation": "Configure Authenticator app, FIDO2, or Windows Hello for Business as MFA methods.",
+                    "severity": "high",
+                    "targetPath": "$.StrongAuthenticationMethods",
+                    "title": "Phishing-resistant MFA methods configured",
+                    "evaluationResult": "Array length check: expected >= 1, got 0",
+                    "evidence": "[]",
+                    "whyItMatters": "Phishing-resistant methods prevent SMS-based attacks and provide stronger security."
+                },
+                {
+                    "status": "failed",
+                    "ruleId": "MFA-Composite-001",
+                    "remediation": "Enable MFA and configure at least one authentication method.",
+                    "severity": "high",
+                    "targetPath": "Composite rule",
+                    "title": "MFA properly configured with multiple methods",
+                    "evaluationResult": "Composite AND evaluation: $.StrongAuthenticationRequirements[0].State: false, $.StrongAuthenticationMethods: false",
+                    "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}",
+                    "whyItMatters": "MFA must be both enabled and have multiple authentication methods configured for proper security."
+                },
+                {
+                    "status": "warning",
+                    "ruleId": "MFA-Dependent-001",
+                    "remediation": "Enable Microsoft Authenticator app as an MFA method for users.",
+                    "severity": "medium",
+                    "targetPath": "$.StrongAuthenticationMethods[*].MethodType",
+                    "title": "MFA methods are phishing-resistant",
+                    "evaluationResult": "Rule skipped due to failed dependencies",
+                    "evidence": "Dependency not satisfied: MFA-Methods-002",
+                    "whyItMatters": "Authenticator apps provide better security than SMS-based MFA."
+                },
+                {
+                    "status": "passed",
+                    "ruleId": "UPN-Pattern-001",
+                    "remediation": "Ensure all users have valid email-format User Principal Names.",
+                    "severity": "medium",
+                    "targetPath": "$.UserPrincipalName",
+                    "title": "User Principal Name follows corporate pattern",
+                    "evaluationResult": "Custom evaluator: ($_ -match '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'), result: true",
+                    "evidence": "\"Andrew@camnetcyber.au\"",
+                    "whyItMatters": "Valid UPN format ensures proper user identification and authentication."
+                },
+                {
+                    "status": "warning",
+                    "ruleId": "Nested-Array-001",
+                    "remediation": "Review and properly assign roles to users.",
+                    "severity": "low",
+                    "targetPath": "$.AssignedRoles[0].DisplayName",
+                    "title": "User has specific role assignment",
+                    "evaluationResult": "Value does not exist",
+                    "evidence": "Path not found: $.AssignedRoles",
+                    "whyItMatters": "Role assignments should be properly configured and visible."
+                },
+                {
+                    "status": "failed",
+                    "ruleId": "Complex-Composite-001",
+                    "remediation": "Ensure account is enabled, has valid UPN, and MFA is enforced.",
+                    "severity": "high",
+                    "targetPath": "Composite rule",
+                    "title": "User account is fully compliant",
+                    "evaluationResult": "Composite AND evaluation: $.AccountEnabled: true, $.UserPrincipalName: true, $.StrongAuthenticationRequirements[0].State: false",
+                    "evidence": "{\"Id\":\"019a6e44-e62c-40d2-bbd4-b7a741087bb7\",\"UserPrincipalName\":\"Andrew@camnetcyber.au\",\"DisplayName\":\"Andrew Nathan\",\"AccountEnabled\":true,\"AssignedLicenses\":[{\"DisabledPlans\":[],\"SkuId\":\"f245ecc8-75af-4f8e-b61f-27d8114de5f3\"}],\"CreatedDateTime\":\"2025-08-25T05:06:46Z\",\"StrongAuthenticationRequirements\":[{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}],\"StrongAuthenticationMethods\":[],\"AssignedRoles\":\"\"}",
+                    "whyItMatters": "All critical account settings must be properly configured for security compliance."
+                }
+            ]
+        };
+        
+        // Tab switching
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // Filter functions
+        function filterFindings(status) {
+            showTab('findings');
+            document.getElementById('statusFilter').value = status;
+            applyFilters();
+        }
+        
+        function applyFilters() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const severityFilter = document.getElementById('severityFilter').value;
+            const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+            
+            document.querySelectorAll('.finding-card').forEach(card => {
+                const status = card.getAttribute('data-status');
+                const severity = card.getAttribute('data-severity');
+                const title = card.querySelector('.finding-title').textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (statusFilter !== 'all' && status !== statusFilter) show = false;
+                if (severityFilter !== 'all' && severity !== severityFilter) show = false;
+                if (searchFilter && !title.includes(searchFilter)) show = false;
+                
+                card.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function clearFilters() {
+            document.getElementById('statusFilter').value = 'all';
+            document.getElementById('severityFilter').value = 'all';
+            document.getElementById('searchFilter').value = '';
+            applyFilters();
+        }
+        
+        // Download functions
+        function downloadFile(content, filename, contentType) {
+            try {
+                const blob = new Blob([content], { type: contentType });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                
+                showDownloadMessage('✅ ' + filename + ' downloaded successfully!');
+            } catch (error) {
+                showDownloadMessage('❌ Error downloading ' + filename + ': ' + error.message);
+            }
+        }
+        
+        function showDownloadMessage(message) {
+            const messagesDiv = document.getElementById('downloadMessages');
+            const isError = message.includes('❌');
+            const messageClass = isError ? 'error-message' : 'success-message';
+            messagesDiv.innerHTML = '<div class="' + messageClass + '">' + message + '</div>';
+            setTimeout(() => {
+                messagesDiv.innerHTML = '';
+            }, 5000);
+        }
+        
+        function downloadActionPlan() {
+            const failedRules = evaluationData.findings.filter(f => f.status === 'failed');
+            let content = '# Essential 8 Advanced Action Plan - ' + new Date().toLocaleDateString() + '\n\n';
+            content += '## Executive Summary\n';
+            content += '- **Total Failed Rules:** ' + failedRules.length + '\n';
+            content += '- **Compliance Score:** ' + evaluationData.summary.complianceScore + '%\n';
+            content += '- **Priority:** ' + (evaluationData.summary.complianceScore < 50 ? 'HIGH' : 'MEDIUM') + '\n\n';
+            content += '## Priority Actions Required\n\n';
+            
+            failedRules.forEach((rule, index) => {
+                content += `### ${index + 1}. ${rule.title}\n`;
+                content += `- **Severity:** ${rule.severity.toUpperCase()}\n`;
+                content += `- **Rule ID:** ${rule.ruleId}\n`;
+                content += `- **Action:** ${rule.remediation}\n\n`;
+            });
+            
+            downloadFile(content, 'Essential8-Advanced-ActionPlan.md', 'text/markdown');
+        }
+        
+        function downloadCsv() {
+            let content = 'Rule ID,Title,Status,Severity,Why It Matters,Remediation,Target Path,Evidence\n';
+            evaluationData.findings.forEach(finding => {
+                content += `"${finding.ruleId}","${finding.title}","${finding.status}","${finding.severity}","${finding.whyItMatters}","${finding.remediation}","${finding.targetPath}","${finding.evidence}"\n`;
+            });
+            
+            downloadFile(content, 'Essential8-Advanced-Results.csv', 'text/csv');
+        }
+        
+        function downloadJson() {
+            downloadFile(JSON.stringify(evaluationData, null, 2), 'Essential8-Advanced-Data.json', 'application/json');
+        }
+        
+        function printReport() {
+            window.print();
+        }
+        
+        function showAdvancedRules() {
+            showTab('rules');
+        }
+        
+        // Initialize the report
+        function initializeReport() {
+            try {
+                // Bind report metadata
+                document.getElementById('generatedAt').textContent = 'Generated on ' + evaluationData.report.generatedAt;
+                document.getElementById('source').textContent = 'Source: ' + evaluationData.report.source;
+                document.getElementById('recordCount').textContent = 'Input Records: ' + evaluationData.report.inputRecords + ' | Rules Evaluated: ' + evaluationData.report.rulesEvaluated;
+                
+                // Bind summary values
+                document.getElementById('totalChecks').textContent = evaluationData.summary.totalChecks;
+                document.getElementById('passed').textContent = evaluationData.summary.passed;
+                document.getElementById('failed').textContent = evaluationData.summary.failed;
+                document.getElementById('warnings').textContent = evaluationData.summary.warning;
+                document.getElementById('complianceScore').textContent = evaluationData.summary.complianceScore + '%';
+                
+                // Bind findings
+                const findingsContainer = document.getElementById('findingsContainer');
+                findingsContainer.innerHTML = '';
+                
+                evaluationData.findings.forEach(finding => {
+                    const findingElement = document.createElement('div');
+                    findingElement.className = `finding-card finding-card-${finding.status}`;
+                    findingElement.setAttribute('data-status', finding.status);
+                    findingElement.setAttribute('data-severity', finding.severity);
+                    
+                    // Determine rule type
+                    let ruleType = 'simple';
+                    if (finding.targetPath === 'Composite rule') ruleType = 'composite';
+                    else if (finding.evaluationResult.includes('skipped due to failed dependencies')) ruleType = 'dependent';
+                    else if (finding.evaluationResult.includes('Custom evaluator')) ruleType = 'custom';
+                    
+                    findingElement.innerHTML = `
+                        <div class="finding-header">
+                            <div class="finding-title">${finding.title}</div>
+                            <div>
+                                <span class="finding-status finding-status-${finding.status}">${finding.status}</span>
+                                <span class="severity-badge severity-badge-${finding.severity}">${finding.severity}</span>
+                                <span class="rule-type rule-type-${ruleType}">${ruleType}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="finding-details">
+                            <div class="finding-detail">
+                                <strong>Why it matters:</strong> ${finding.whyItMatters}
+                            </div>
+                            <div class="finding-detail">
+                                <strong>Evidence:</strong>
+                                <pre>${finding.evidence}</pre>
+                            </div>
+                            <div class="finding-detail">
+                                <strong>Evaluation Result:</strong> ${finding.evaluationResult}
+                            </div>
+                            <div class="finding-detail">
+                                <strong>Remediation:</strong> ${finding.remediation}
+                            </div>
+                            <div class="finding-detail">
+                                <strong>Target Path:</strong> <code>${finding.targetPath}</code>
+                            </div>
+                        </div>
+                    `;
+                    findingsContainer.appendChild(findingElement);
+                });
+                
+                console.log('Essential 8 Advanced Compliance Report loaded successfully!');
+                console.log('Data:', evaluationData);
+                
+            } catch (error) {
+                console.error('Error initializing report:', error);
+                document.getElementById('findingsContainer').innerHTML = '<div class="error">Error loading report data: ' + error.message + '</div>';
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeReport);
+    </script>
+</body>
+</html>

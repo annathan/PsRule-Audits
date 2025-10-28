@@ -1,0 +1,171 @@
+{
+  "findings": [
+    {
+      "status": "warning",
+      "ruleId": "MFA-State-001",
+      "remediation": "Enable MFA for all user accounts in Azure AD.",
+      "severity": "high",
+      "targetPath": "$.StrongAuthenticationRequirements[0].State",
+      "title": "MFA enabled for user",
+      "evaluationResult": "Value comparison: expected 'Enforced', got 'null'",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}",
+      "whyItMatters": "MFA reduces account takeover risk by requiring additional authentication factors."
+    },
+    {
+      "status": "failed",
+      "ruleId": "MFA-Methods-002",
+      "remediation": "Configure Authenticator app, FIDO2, or Windows Hello for Business as MFA methods.",
+      "severity": "high",
+      "targetPath": "$.StrongAuthenticationMethods",
+      "title": "Phishing-resistant MFA methods configured",
+      "evaluationResult": "Type mismatch: expected 'array', got 'object'",
+      "evidence": "{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}",
+      "whyItMatters": "Phishing-resistant methods prevent SMS-based attacks and provide stronger security."
+    },
+    {
+      "status": "warning",
+      "ruleId": "MFA-MethodType-003",
+      "remediation": "Enable Microsoft Authenticator app as an MFA method for users.",
+      "severity": "medium",
+      "targetPath": "$.StrongAuthenticationMethods[*].MethodType",
+      "title": "Authenticator app method available",
+      "evaluationResult": "Contains check failed: value is not array or string",
+      "evidence": "{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}",
+      "whyItMatters": "Authenticator apps provide better security than SMS-based MFA."
+    },
+    {
+      "status": "warning",
+      "ruleId": "Admin-Roles-004",
+      "remediation": "Review and properly assign administrative roles to users.",
+      "severity": "medium",
+      "targetPath": "$.AssignedRoles",
+      "title": "User has administrative roles",
+      "evaluationResult": "Type check: expected 'array', got 'unknown'",
+      "evidence": "Path not found: $.AssignedRoles",
+      "whyItMatters": "Administrative roles should be properly assigned and monitored."
+    },
+    {
+      "status": "passed",
+      "ruleId": "Account-Status-005",
+      "remediation": "Ensure user accounts are properly enabled for access.",
+      "severity": "low",
+      "targetPath": "$.AccountEnabled",
+      "title": "User account is enabled",
+      "evaluationResult": "Value comparison: expected 'True', got 'true'",
+      "evidence": "true",
+      "whyItMatters": "Enabled accounts can be used for authentication and access."
+    },
+    {
+      "status": "warning",
+      "ruleId": "Global-Admin-Count-006",
+      "remediation": "Limit Global Administrator role assignments to 2-5 accounts maximum.",
+      "severity": "high",
+      "targetPath": "$.Members",
+      "title": "Global Administrator count within limits",
+      "evaluationResult": "Array length check failed: value is not an array",
+      "evidence": "Path not found: $.Members",
+      "whyItMatters": "Too many Global Administrators increases security risk and attack surface."
+    },
+    {
+      "status": "passed",
+      "ruleId": "User-Principal-Name-007",
+      "remediation": "Ensure all users have valid User Principal Names configured.",
+      "severity": "medium",
+      "targetPath": "$.UserPrincipalName",
+      "title": "User Principal Name is valid",
+      "evaluationResult": "Value exists: \"Andrew@camnetcyber.au\"",
+      "evidence": "\"Andrew@camnetcyber.au\"",
+      "whyItMatters": "Valid UPN is required for user identification and authentication."
+    },
+    {
+      "status": "warning",
+      "ruleId": "MFA-State-001",
+      "remediation": "Enable MFA for all user accounts in Azure AD.",
+      "severity": "high",
+      "targetPath": "$.StrongAuthenticationRequirements[0].State",
+      "title": "MFA enabled for user",
+      "evaluationResult": "Value comparison: expected 'Enforced', got 'null'",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enabled\"}",
+      "whyItMatters": "MFA reduces account takeover risk by requiring additional authentication factors."
+    },
+    {
+      "status": "failed",
+      "ruleId": "MFA-Methods-002",
+      "remediation": "Configure Authenticator app, FIDO2, or Windows Hello for Business as MFA methods.",
+      "severity": "high",
+      "targetPath": "$.StrongAuthenticationMethods",
+      "title": "Phishing-resistant MFA methods configured",
+      "evaluationResult": "Type mismatch: expected 'array', got 'object'",
+      "evidence": "{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}",
+      "whyItMatters": "Phishing-resistant methods prevent SMS-based attacks and provide stronger security."
+    },
+    {
+      "status": "warning",
+      "ruleId": "MFA-MethodType-003",
+      "remediation": "Enable Microsoft Authenticator app as an MFA method for users.",
+      "severity": "medium",
+      "targetPath": "$.StrongAuthenticationMethods[*].MethodType",
+      "title": "Authenticator app method available",
+      "evaluationResult": "Contains check failed: value is not array or string",
+      "evidence": "{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}",
+      "whyItMatters": "Authenticator apps provide better security than SMS-based MFA."
+    },
+    {
+      "status": "warning",
+      "ruleId": "Admin-Roles-004",
+      "remediation": "Review and properly assign administrative roles to users.",
+      "severity": "medium",
+      "targetPath": "$.AssignedRoles",
+      "title": "User has administrative roles",
+      "evaluationResult": "Type check: expected 'array', got 'unknown'",
+      "evidence": "Path not found: $.AssignedRoles",
+      "whyItMatters": "Administrative roles should be properly assigned and monitored."
+    },
+    {
+      "status": "passed",
+      "ruleId": "Account-Status-005",
+      "remediation": "Ensure user accounts are properly enabled for access.",
+      "severity": "low",
+      "targetPath": "$.AccountEnabled",
+      "title": "User account is enabled",
+      "evaluationResult": "Value comparison: expected 'True', got 'true'",
+      "evidence": "true",
+      "whyItMatters": "Enabled accounts can be used for authentication and access."
+    },
+    {
+      "status": "warning",
+      "ruleId": "Global-Admin-Count-006",
+      "remediation": "Limit Global Administrator role assignments to 2-5 accounts maximum.",
+      "severity": "high",
+      "targetPath": "$.Members",
+      "title": "Global Administrator count within limits",
+      "evaluationResult": "Array length check failed: value is not an array",
+      "evidence": "Path not found: $.Members",
+      "whyItMatters": "Too many Global Administrators increases security risk and attack surface."
+    },
+    {
+      "status": "passed",
+      "ruleId": "User-Principal-Name-007",
+      "remediation": "Ensure all users have valid User Principal Names configured.",
+      "severity": "medium",
+      "targetPath": "$.UserPrincipalName",
+      "title": "User Principal Name is valid",
+      "evaluationResult": "Value exists: \"info@camnetcyber.au\"",
+      "evidence": "\"info@camnetcyber.au\"",
+      "whyItMatters": "Valid UPN is required for user identification and authentication."
+    }
+  ],
+  "summary": {
+    "failed": 2,
+    "warning": 8,
+    "complianceScore": 28.6,
+    "passed": 4,
+    "totalChecks": 14
+  },
+  "report": {
+    "source": "Essential 8 Compliance Assessment",
+    "inputRecords": 2,
+    "generatedAt": "2025-10-03T11:00:54Z",
+    "rulesEvaluated": 7
+  }
+}

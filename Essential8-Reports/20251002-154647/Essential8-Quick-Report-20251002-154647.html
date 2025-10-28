@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential 8 Compliance Report - 2025-10-02</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 8px 8px 0 0; }
+        .header h1 { margin: 0; font-size: 2.5em; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; }
+        .content { padding: 30px; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .metric { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; border-left: 4px solid #007bff; }
+        .metric h3 { margin: 0; color: #495057; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; }
+        .metric .value { font-size: 2.5em; font-weight: bold; margin: 10px 0; }
+        .metric.pass .value { color: #28a745; }
+        .metric.fail .value { color: #dc3545; }
+        .metric.score .value { color: #007bff; }
+        .strategies { margin-top: 30px; }
+        .strategy { margin-bottom: 20px; padding: 20px; background: #f8f9fa; border-radius: 8px; }
+        .strategy h3 { margin: 0 0 15px 0; color: #495057; }
+        .strategy-stats { display: flex; gap: 20px; align-items: center; }
+        .stat { padding: 10px 15px; border-radius: 5px; font-weight: bold; }
+        .stat.pass { background: #d4edda; color: #155724; }
+        .stat.fail { background: #f8d7da; color: #721c24; }
+        .rules-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .rules-table th, .rules-table td { padding: 12px; text-align: left; border-bottom: 1px solid #dee2e6; }
+        .rules-table th { background: #e9ecef; font-weight: 600; }
+        .outcome { padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; }
+        .outcome.pass { background: #d4edda; color: #155724; }
+        .outcome.fail { background: #f8d7da; color: #721c24; }
+        .footer { text-align: center; padding: 20px; color: #6c757d; border-top: 1px solid #dee2e6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ Essential 8 Compliance Report</h1>
+            <p>Generated on Thursday, October 02, 2025 aP 15:46:51</p>
+        </div>
+        
+        <div class="content">
+            <div class="summary">
+                <div class="metric score">
+                    <h3>Compliance Score</h3>
+                    <div class="value">88.9%</div>
+                </div>
+                <div class="metric">
+                    <h3>Total Rules</h3>
+                    <div class="value">18</div>
+                </div>
+                <div class="metric pass">
+                    <h3>Passed</h3>
+                    <div class="value">16</div>
+                </div>
+                <div class="metric fail">
+                    <h3>Failed</h3>
+                    <div class="value">2</div>
+                </div>
+            </div>
+            
+            <div class="strategies">
+                <h2>📋 Essential 8 Strategy Results</h2>                <div class="strategy">
+                    <h3>E8-5 - Restrict Administrative Privileges</h3>
+                    <div class="strategy-stats">
+                        <div class="stat pass">✓ 5 Passed</div>
+                        <div class="stat fail">✗ 0 Failed</div>
+                        <div>Total: 5 rules</div>
+                    </div>
+                </div>                <div class="strategy">
+                    <h3>E8-7 - Multi-Factor Authentication</h3>
+                    <div class="strategy-stats">
+                        <div class="stat pass">✓ 6 Passed</div>
+                        <div class="stat fail">✗ 2 Failed</div>
+                        <div>Total: 8 rules</div>
+                    </div>
+                </div>                <div class="strategy">
+                    <h3>Other - Other Rules</h3>
+                    <div class="strategy-stats">
+                        <div class="stat pass">✓ 5 Passed</div>
+                        <div class="stat fail">✗ 0 Failed</div>
+                        <div>Total: 5 rules</div>
+                    </div>
+                </div>            </div>
+            
+            <div class="rules-detail">
+                <h2>📊 Detailed Rule Results</h2>
+                <table class="rules-table">
+                    <thead>
+                        <tr>
+                            <th>Rule Name</th>
+                            <th>Outcome</th>
+                            <th>Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>                        <tr>
+                            <td>Essential8.E8-5.AzureAD.Admin.DedicatedAccounts</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Privileged accounts should be dedicated admin accounts, not regular user accounts</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-5.AzureAD.Admin.DedicatedAccounts</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Privileged accounts should be dedicated admin accounts, not regular user accounts</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-5.AzureAD.Admin.GlobalAdminCount</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Limit Global Administrator role assignments to 2-5 accounts maximum</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-5.AzureAD.Admin.MFARequired</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>All privileged accounts must have MFA enforced</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-5.AzureAD.Admin.MFARequired</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>All privileged accounts must have MFA enforced</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-7.AzureAD.EmergencyAccess</td>
+                            <td><span class="outcome ">Fail</span></td>
+                            <td>Emergency access accounts should be properly configured and monitored</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-7.AzureAD.EmergencyAccess</td>
+                            <td><span class="outcome ">Fail</span></td>
+                            <td>Emergency access accounts should be properly configured and monitored</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-7.AzureAD.MFA.AllUsersEnabled</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Multi-factor authentication should be enabled for all users</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-7.AzureAD.MFA.AllUsersEnabled</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Multi-factor authentication should be enabled for all users</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-7.AzureAD.MFA.PhishingResistant</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Users should use phishing-resistant MFA methods (Authenticator app, FIDO2, Windows Hello)</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-7.AzureAD.MFA.PhishingResistant</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Users should use phishing-resistant MFA methods (Authenticator app, FIDO2, Windows Hello)</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-7.AzureAD.MFA.PrivilegedEnforced</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Privileged accounts must have MFA enforced, not just enabled</td>
+                        </tr>                        <tr>
+                            <td>Essential8.E8-7.AzureAD.MFA.PrivilegedEnforced</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>Privileged accounts must have MFA enforced, not just enabled</td>
+                        </tr>                        <tr>
+                            <td>Essential8.Test.Simple</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>No specific recommendation</td>
+                        </tr>                        <tr>
+                            <td>Essential8.Test.Simple</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>No specific recommendation</td>
+                        </tr>                        <tr>
+                            <td>Essential8.Test.Simple</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>No specific recommendation</td>
+                        </tr>                        <tr>
+                            <td>Essential8.Test.Simple</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>No specific recommendation</td>
+                        </tr>                        <tr>
+                            <td>Essential8.Test.Simple</td>
+                            <td><span class="outcome ">Pass</span></td>
+                            <td>No specific recommendation</td>
+                        </tr>                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Essential 8 Compliance Assessment | Generated by PSRule | 2025</p>
+        </div>
+    </div>
+</body>
+</html>

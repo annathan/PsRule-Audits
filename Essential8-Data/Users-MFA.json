@@ -1,0 +1,54 @@
+[
+  {
+    "Id": "019a6e44-e62c-40d2-bbd4-b7a741087bb7",
+    "UserPrincipalName": "Andrew@camnetcyber.au",
+    "DisplayName": "Andrew Nathan",
+    "AccountEnabled": true,
+    "AssignedLicenses": [
+      {
+        "DisabledPlans": [],
+        "SkuId": "f245ecc8-75af-4f8e-b61f-27d8114de5f3"
+      }
+    ],
+    "CreatedDateTime": "2025-08-25T05:06:46Z",
+    "StrongAuthenticationRequirements": [
+      {
+        "RelyingParty": "*",
+        "State": "Enforced"
+      }
+    ],
+    "StrongAuthenticationMethods": [
+      {
+        "MethodType": "AuthenticatorApp",
+        "IsDefault": true
+      }
+    ],
+    "AssignedRoles": []
+  },
+  {
+    "Id": "915e1219-bdbd-4f40-ab4e-2003b9dd05d3",
+    "UserPrincipalName": "info@camnetcyber.au",
+    "DisplayName": "Info Account",
+    "AccountEnabled": true,
+    "AssignedLicenses": [
+      {
+        "DisabledPlans": [],
+        "SkuId": "f245ecc8-75af-4f8e-b61f-27d8114de5f3"
+      }
+    ],
+    "CreatedDateTime": "2025-09-26T04:19:27Z",
+    "StrongAuthenticationRequirements": [
+      {
+        "RelyingParty": "*",
+        "State": "Enabled"
+      }
+    ],
+    "StrongAuthenticationMethods": [
+      {
+        "MethodType": "AuthenticatorApp",
+        "IsDefault": true
+      }
+    ],
+    "AssignedRoles": []
+  }
+]

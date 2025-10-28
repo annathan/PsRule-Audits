@@ -1,0 +1,196 @@
+{
+  "summary": {
+    "passed": 2,
+    "failed": 10,
+    "warning": 4,
+    "complianceScore": 12.5,
+    "totalChecks": 16
+  },
+  "findings": [
+    {
+      "whyItMatters": "MFA reduces account takeover risk by requiring additional authentication factors.",
+      "targetPath": "$.StrongAuthenticationRequirements[0].State",
+      "remediation": "Enable MFA for all user accounts in Azure AD.",
+      "severity": "high",
+      "title": "MFA enabled for user",
+      "evaluationResult": "Value comparison: expected 'Enforced', got 'null'",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}",
+      "ruleId": "MFA-Simple-001",
+      "status": "warning"
+    },
+    {
+      "whyItMatters": "MFA must be both enabled and have multiple authentication methods configured for proper security.",
+      "targetPath": "Composite rule",
+      "remediation": "Enable MFA and configure at least one authentication method.",
+      "severity": "high",
+      "title": "MFA properly configured with multiple methods",
+      "evaluationResult": "Composite AND evaluation: $.StrongAuthenticationRequirements[0].State: False $.StrongAuthenticationMethods: False -join ', '",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}",
+      "ruleId": "MFA-Composite-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "Authenticator apps provide better security than SMS-based MFA.",
+      "targetPath": "$.StrongAuthenticationMethods[*].MethodType",
+      "remediation": "Enable Microsoft Authenticator app as an MFA method for users.",
+      "severity": "medium",
+      "title": "MFA methods are phishing-resistant",
+      "evaluationResult": "Rule skipped due to failed dependencies",
+      "evidence": "Dependency not satisfied: MFA-Methods-002",
+      "ruleId": "MFA-Dependent-001",
+      "status": "warning"
+    },
+    {
+      "whyItMatters": "Valid UPN format ensures proper user identification and authentication.",
+      "targetPath": "$.UserPrincipalName",
+      "remediation": "Ensure all users have valid email-format User Principal Names.",
+      "severity": "medium",
+      "title": "User Principal Name follows corporate pattern",
+      "evaluationResult": "Custom evaluator error: Cannot overwrite variable ExecutionContext because it is read-only or constant.",
+      "evidence": "\"Andrew@camnetcyber.au\"",
+      "ruleId": "UPN-Custom-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "All critical account settings must be properly configured for security compliance.",
+      "targetPath": "Composite rule",
+      "remediation": "Ensure account is enabled, has valid UPN, and MFA is enforced.",
+      "severity": "high",
+      "title": "User account is fully compliant",
+      "evaluationResult": "Composite AND evaluation: $.AccountEnabled: True $.UserPrincipalName: True $.StrongAuthenticationRequirements[0].State: False -join ', '",
+      "evidence": "{\"Id\":\"019a6e44-e62c-40d2-bbd4-b7a741087bb7\",\"UserPrincipalName\":\"Andrew@camnetcyber.au\",\"DisplayName\":\"Andrew Nathan\",\"AccountEnabled\":true,\"AssignedLicenses\":[{\"DisabledPlans\":[],\"SkuId\":\"f245ecc8-75af-4f8e-b61f-27d8114de5f3\"}],\"CreatedDateTime\":\"2025-08-25T05:06:46Z\",\"StrongAuthenticationRequirements\":[{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}],\"StrongAuthenticationMethods\":[{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}],\"AssignedRoles\":[]}",
+      "ruleId": "Complex-Composite-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "Users with admin roles should have MFA, or users without admin roles should have MFA for security.",
+      "targetPath": "Composite rule",
+      "remediation": "Either remove admin roles or enable MFA for all users.",
+      "severity": "medium",
+      "title": "User has either admin role or MFA enabled",
+      "evaluationResult": "Composite OR evaluation: $.AssignedRoles: False $.StrongAuthenticationRequirements[0].State: False -join ', '",
+      "evidence": "{\"Id\":\"019a6e44-e62c-40d2-bbd4-b7a741087bb7\",\"UserPrincipalName\":\"Andrew@camnetcyber.au\",\"DisplayName\":\"Andrew Nathan\",\"AccountEnabled\":true,\"AssignedLicenses\":[{\"DisabledPlans\":[],\"SkuId\":\"f245ecc8-75af-4f8e-b61f-27d8114de5f3\"}],\"CreatedDateTime\":\"2025-08-25T05:06:46Z\",\"StrongAuthenticationRequirements\":[{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}],\"StrongAuthenticationMethods\":[{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}],\"AssignedRoles\":[]}",
+      "ruleId": "OR-Logic-001",
+      "status": "passed"
+    },
+    {
+      "whyItMatters": "Role assignments should be properly configured and visible.",
+      "targetPath": "$.AssignedRoles[0].DisplayName",
+      "remediation": "Review and properly assign roles to users.",
+      "severity": "low",
+      "title": "User has specific role assignment",
+      "evaluationResult": "Value does not exist",
+      "evidence": "Path not found: $.AssignedRoles",
+      "ruleId": "Nested-Array-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "Only approved email domains should be used for user accounts.",
+      "targetPath": "$.UserPrincipalName",
+      "remediation": "Ensure all user accounts use approved email domains.",
+      "severity": "medium",
+      "title": "Email domain is from approved list",
+      "evaluationResult": "Custom evaluator error: Cannot overwrite variable ExecutionContext because it is read-only or constant.",
+      "evidence": "\"Andrew@camnetcyber.au\"",
+      "ruleId": "Custom-Email-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "MFA reduces account takeover risk by requiring additional authentication factors.",
+      "targetPath": "$.StrongAuthenticationRequirements[0].State",
+      "remediation": "Enable MFA for all user accounts in Azure AD.",
+      "severity": "high",
+      "title": "MFA enabled for user",
+      "evaluationResult": "Value comparison: expected 'Enforced', got 'null'",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enabled\"}",
+      "ruleId": "MFA-Simple-001",
+      "status": "warning"
+    },
+    {
+      "whyItMatters": "MFA must be both enabled and have multiple authentication methods configured for proper security.",
+      "targetPath": "Composite rule",
+      "remediation": "Enable MFA and configure at least one authentication method.",
+      "severity": "high",
+      "title": "MFA properly configured with multiple methods",
+      "evaluationResult": "Composite AND evaluation: $.StrongAuthenticationRequirements[0].State: False $.StrongAuthenticationMethods: False -join ', '",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enabled\"}",
+      "ruleId": "MFA-Composite-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "Authenticator apps provide better security than SMS-based MFA.",
+      "targetPath": "$.StrongAuthenticationMethods[*].MethodType",
+      "remediation": "Enable Microsoft Authenticator app as an MFA method for users.",
+      "severity": "medium",
+      "title": "MFA methods are phishing-resistant",
+      "evaluationResult": "Rule skipped due to failed dependencies",
+      "evidence": "Dependency not satisfied: MFA-Methods-002",
+      "ruleId": "MFA-Dependent-001",
+      "status": "warning"
+    },
+    {
+      "whyItMatters": "Valid UPN format ensures proper user identification and authentication.",
+      "targetPath": "$.UserPrincipalName",
+      "remediation": "Ensure all users have valid email-format User Principal Names.",
+      "severity": "medium",
+      "title": "User Principal Name follows corporate pattern",
+      "evaluationResult": "Custom evaluator error: Cannot overwrite variable ExecutionContext because it is read-only or constant.",
+      "evidence": "\"info@camnetcyber.au\"",
+      "ruleId": "UPN-Custom-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "All critical account settings must be properly configured for security compliance.",
+      "targetPath": "Composite rule",
+      "remediation": "Ensure account is enabled, has valid UPN, and MFA is enforced.",
+      "severity": "high",
+      "title": "User account is fully compliant",
+      "evaluationResult": "Composite AND evaluation: $.AccountEnabled: True $.UserPrincipalName: True $.StrongAuthenticationRequirements[0].State: False -join ', '",
+      "evidence": "{\"Id\":\"915e1219-bdbd-4f40-ab4e-2003b9dd05d3\",\"UserPrincipalName\":\"info@camnetcyber.au\",\"DisplayName\":\"Info Account\",\"AccountEnabled\":true,\"AssignedLicenses\":[{\"DisabledPlans\":[],\"SkuId\":\"f245ecc8-75af-4f8e-b61f-27d8114de5f3\"}],\"CreatedDateTime\":\"2025-09-26T04:19:27Z\",\"StrongAuthenticationRequirements\":[{\"RelyingParty\":\"*\",\"State\":\"Enabled\"}],\"StrongAuthenticationMethods\":[{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}],\"AssignedRoles\":[]}",
+      "ruleId": "Complex-Composite-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "Users with admin roles should have MFA, or users without admin roles should have MFA for security.",
+      "targetPath": "Composite rule",
+      "remediation": "Either remove admin roles or enable MFA for all users.",
+      "severity": "medium",
+      "title": "User has either admin role or MFA enabled",
+      "evaluationResult": "Composite OR evaluation: $.AssignedRoles: False $.StrongAuthenticationRequirements[0].State: False -join ', '",
+      "evidence": "{\"Id\":\"915e1219-bdbd-4f40-ab4e-2003b9dd05d3\",\"UserPrincipalName\":\"info@camnetcyber.au\",\"DisplayName\":\"Info Account\",\"AccountEnabled\":true,\"AssignedLicenses\":[{\"DisabledPlans\":[],\"SkuId\":\"f245ecc8-75af-4f8e-b61f-27d8114de5f3\"}],\"CreatedDateTime\":\"2025-09-26T04:19:27Z\",\"StrongAuthenticationRequirements\":[{\"RelyingParty\":\"*\",\"State\":\"Enabled\"}],\"StrongAuthenticationMethods\":[{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}],\"AssignedRoles\":[]}",
+      "ruleId": "OR-Logic-001",
+      "status": "passed"
+    },
+    {
+      "whyItMatters": "Role assignments should be properly configured and visible.",
+      "targetPath": "$.AssignedRoles[0].DisplayName",
+      "remediation": "Review and properly assign roles to users.",
+      "severity": "low",
+      "title": "User has specific role assignment",
+      "evaluationResult": "Value does not exist",
+      "evidence": "Path not found: $.AssignedRoles",
+      "ruleId": "Nested-Array-001",
+      "status": "failed"
+    },
+    {
+      "whyItMatters": "Only approved email domains should be used for user accounts.",
+      "targetPath": "$.UserPrincipalName",
+      "remediation": "Ensure all user accounts use approved email domains.",
+      "severity": "medium",
+      "title": "Email domain is from approved list",
+      "evaluationResult": "Custom evaluator error: Cannot overwrite variable ExecutionContext because it is read-only or constant.",
+      "evidence": "\"info@camnetcyber.au\"",
+      "ruleId": "Custom-Email-001",
+      "status": "failed"
+    }
+  ],
+  "report": {
+    "generatedAt": "2025-10-03T11:38:31Z",
+    "parallelProcessing": {
+      "IsPresent": false
+    },
+    "rulesEvaluated": 8,
+    "source": "Essential 8 Advanced Compliance Assessment",
+    "inputRecords": 2
+  }
+}

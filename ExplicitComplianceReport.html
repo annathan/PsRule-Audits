@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential 8 Explicit Compliance Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        
+        .header { background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 40px; text-align: center; }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; font-weight: 300; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.9; margin-bottom: 20px; }
+        .header .meta { font-size: 0.9em; opacity: 0.8; }
+        
+        .summary-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .summary-card { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; text-align: center; }
+        .summary-card h3 { font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; opacity: 0.8; }
+        .summary-card .value { font-size: 2em; font-weight: bold; margin-bottom: 5px; }
+        
+        .findings-section { padding: 30px; }
+        .finding-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-left: 4px solid #ddd; }
+        .finding-card.passed { border-left-color: #28a745; }
+        .finding-card.failed { border-left-color: #dc3545; }
+        .finding-card.warning { border-left-color: #ffc107; }
+        
+        .finding-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .finding-title { font-size: 1.1em; font-weight: 600; color: #2c3e50; }
+        .finding-status { padding: 4px 8px; border-radius: 15px; font-size: 0.8em; font-weight: bold; text-transform: uppercase; }
+        .finding-status.passed { background: #d4edda; color: #155724; }
+        .finding-status.failed { background: #f8d7da; color: #721c24; }
+        .finding-status.warning { background: #fff3cd; color: #856404; }
+        
+        .finding-details { margin-top: 15px; }
+        .finding-detail { margin-bottom: 10px; }
+        .finding-detail strong { color: #495057; }
+        .finding-detail pre { background: #f8f9fa; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto; }
+        
+        .severity-badge { padding: 2px 6px; border-radius: 10px; font-size: 0.7em; font-weight: bold; text-transform: uppercase; }
+        .severity-badge.high { background: #f8d7da; color: #721c24; }
+        .severity-badge.medium { background: #fff3cd; color: #856404; }
+        .severity-badge.low { background: #d1ecf1; color: #0c5460; }
+        
+        .report-meta { background: #e9ecef; padding: 20px; text-align: center; font-size: 0.9em; color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ Essential 8 Explicit Compliance Report</h1>
+            <div class="subtitle">Verifiable Rule-Based Security Assessment</div>
+            <div class="meta" data-bind="text: 'Generated on ' + report.generatedAt"></div>
+        </div>
+        
+        <div class="summary-section">
+            <h2>📊 Compliance Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3>Total Checks</h3>
+                    <div class="value" data-bind="text: summary.totalChecks"></div>
+                </div>
+                <div class="summary-card">
+                    <h3>Passed</h3>
+                    <div class="value" style="color: #2ecc71;" data-bind="text: summary.passed"></div>
+                </div>
+                <div class="summary-card">
+                    <h3>Failed</h3>
+                    <div class="value" style="color: #e74c3c;" data-bind="text: summary.failed"></div>
+                </div>
+                <div class="summary-card">
+                    <h3>Warnings</h3>
+                    <div class="value" style="color: #f39c12;" data-bind="text: summary.warning"></div>
+                </div>
+                <div class="summary-card">
+                    <h3>Compliance Score</h3>
+                    <div class="value" data-bind="text: summary.complianceScore + '%'"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="findings-section">
+            <h2>🔍 Detailed Findings</h2>
+            <div data-repeat="finding in findings">
+                <div class="finding-card" data-bind="css: 'finding-card ' + finding.status">
+                    <div class="finding-header">
+                        <div class="finding-title" data-bind="text: finding.title"></div>
+                        <div>
+                            <span class="finding-status" data-bind="css: 'finding-status ' + finding.status, text: finding.status"></span>
+                            <span class="severity-badge" data-bind="css: 'severity-badge ' + finding.severity, text: finding.severity"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="finding-details">
+                        <div class="finding-detail">
+                            <strong>Why it matters:</strong> <span data-bind="text: finding.whyItMatters"></span>
+                        </div>
+                        <div class="finding-detail">
+                            <strong>Evidence:</strong>
+                            <pre data-bind="text: finding.evidence"></pre>
+                        </div>
+                        <div class="finding-detail">
+                            <strong>Evaluation Result:</strong> <span data-bind="text: finding.evaluationResult"></span>
+                        </div>
+                        <div class="finding-detail">
+                            <strong>Remediation:</strong> <span data-bind="text: finding.remediation"></span>
+                        </div>
+                        <div class="finding-detail">
+                            <strong>Target Path:</strong> <code data-bind="text: finding.targetPath"></code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="report-meta">
+            <div data-bind="text: 'Source: ' + report.source"></div>
+            <div data-bind="text: 'Input Records: ' + report.inputRecords + ' | Rules Evaluated: ' + report.rulesEvaluated"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Load evaluation results
+        fetch('./evaluation-results.json')
+            .then(response => response.json())
+            .then(data => {
+                // Simple data binding implementation
+                function bindData() {
+                    // Bind report metadata
+                    document.querySelector('[data-bind="text: \'Generated on \' + report.generatedAt"]').textContent = 'Generated on ' + data.report.generatedAt;
+                    document.querySelector('[data-bind="text: \'Source: \' + report.source"]').textContent = 'Source: ' + data.report.source;
+                    document.querySelector('[data-bind="text: \'Input Records: \' + report.inputRecords + \' | Rules Evaluated: \' + report.rulesEvaluated"]').textContent = 'Input Records: ' + data.report.inputRecords + ' | Rules Evaluated: ' + data.report.rulesEvaluated;
+                    
+                    // Bind summary values
+                    document.querySelector('[data-bind="text: summary.totalChecks"]').textContent = data.summary.totalChecks;
+                    document.querySelector('[data-bind="text: summary.passed"]').textContent = data.summary.passed;
+                    document.querySelector('[data-bind="text: summary.failed"]').textContent = data.summary.failed;
+                    document.querySelector('[data-bind="text: summary.warning"]').textContent = data.summary.warning;
+                    document.querySelector('[data-bind="text: summary.complianceScore + \'%\'"]').textContent = data.summary.complianceScore + '%';
+                    
+                    // Bind findings
+                    const findingsContainer = document.querySelector('[data-repeat="finding in findings"]').parentNode;
+                    findingsContainer.innerHTML = '';
+                    
+                    data.findings.forEach(finding => {
+                        const findingElement = document.createElement('div');
+                        findingElement.className = `finding-card finding-card-${finding.status}`;
+                        findingElement.innerHTML = `
+                            <div class="finding-header">
+                                <div class="finding-title">${finding.title}</div>
+                                <div>
+                                    <span class="finding-status finding-status-${finding.status}">${finding.status}</span>
+                                    <span class="severity-badge severity-badge-${finding.severity}">${finding.severity}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="finding-details">
+                                <div class="finding-detail">
+                                    <strong>Why it matters:</strong> ${finding.whyItMatters}
+                                </div>
+                                <div class="finding-detail">
+                                    <strong>Evidence:</strong>
+                                    <pre>${finding.evidence}</pre>
+                                </div>
+                                <div class="finding-detail">
+                                    <strong>Evaluation Result:</strong> ${finding.evaluationResult}
+                                </div>
+                                <div class="finding-detail">
+                                    <strong>Remediation:</strong> ${finding.remediation}
+                                </div>
+                                <div class="finding-detail">
+                                    <strong>Target Path:</strong> <code>${finding.targetPath}</code>
+                                </div>
+                            </div>
+                        `;
+                        findingsContainer.appendChild(findingElement);
+                    });
+                }
+                
+                bindData();
+                console.log('Essential 8 Explicit Compliance Report loaded successfully!');
+                console.log('Data:', data);
+            })
+            .catch(error => {
+                console.error('Error loading evaluation results:', error);
+                document.body.innerHTML = '<div style="padding: 40px; text-align: center;"><h2>Error Loading Report</h2><p>Could not load evaluation results. Please ensure evaluation-results.json exists.</p></div>';
+            });
+    </script>
+</body>
+</html>

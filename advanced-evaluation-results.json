@@ -1,0 +1,174 @@
+{
+  "summary": {
+    "complianceScore": 0.0,
+    "failed": 10,
+    "passed": 0,
+    "totalChecks": 14,
+    "warning": 4
+  },
+  "report": {
+    "generatedAt": "2025-10-03T11:33:54Z",
+    "source": "Essential 8 Advanced Compliance Assessment",
+    "inputRecords": 2,
+    "parallelProcessing": {
+      "IsPresent": false
+    },
+    "rulesEvaluated": 7
+  },
+  "findings": [
+    {
+      "severity": "high",
+      "targetPath": "$.StrongAuthenticationRequirements[0].State",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}",
+      "whyItMatters": "MFA reduces account takeover risk by requiring additional authentication factors.",
+      "evaluationResult": "Value comparison: expected 'Enforced', got 'null'",
+      "ruleId": "MFA-State-001",
+      "remediation": "Enable MFA for all user accounts in Azure AD.",
+      "title": "MFA enabled for user",
+      "status": "warning"
+    },
+    {
+      "severity": "high",
+      "targetPath": "$.StrongAuthenticationMethods",
+      "evidence": "{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}",
+      "whyItMatters": "Phishing-resistant methods prevent SMS-based attacks and provide stronger security.",
+      "evaluationResult": "Type mismatch: expected 'array', got 'object'",
+      "ruleId": "MFA-Methods-002",
+      "remediation": "Configure Authenticator app, FIDO2, or Windows Hello for Business as MFA methods.",
+      "title": "Phishing-resistant MFA methods configured",
+      "status": "failed"
+    },
+    {
+      "severity": "high",
+      "targetPath": "Composite rule",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}",
+      "whyItMatters": "MFA must be both enabled and have multiple authentication methods configured for proper security.",
+      "evaluationResult": "Composite AND evaluation: $.StrongAuthenticationRequirements[0].State: False $.StrongAuthenticationMethods: False -join ', '",
+      "ruleId": "MFA-Composite-001",
+      "remediation": "Enable MFA and configure at least one authentication method.",
+      "title": "MFA properly configured with multiple methods",
+      "status": "failed"
+    },
+    {
+      "severity": "medium",
+      "targetPath": "$.StrongAuthenticationMethods[*].MethodType",
+      "evidence": "Dependency not satisfied: MFA-Methods-002",
+      "whyItMatters": "Authenticator apps provide better security than SMS-based MFA.",
+      "evaluationResult": "Rule skipped due to failed dependencies",
+      "ruleId": "MFA-Dependent-001",
+      "remediation": "Enable Microsoft Authenticator app as an MFA method for users.",
+      "title": "MFA methods are phishing-resistant",
+      "status": "warning"
+    },
+    {
+      "severity": "medium",
+      "targetPath": "$.UserPrincipalName",
+      "evidence": "\"Andrew@camnetcyber.au\"",
+      "whyItMatters": "Valid UPN format ensures proper user identification and authentication.",
+      "evaluationResult": "Custom evaluator error: Cannot overwrite variable ExecutionContext because it is read-only or constant.",
+      "ruleId": "UPN-Pattern-001",
+      "remediation": "Ensure all users have valid email-format User Principal Names.",
+      "title": "User Principal Name follows corporate pattern",
+      "status": "failed"
+    },
+    {
+      "severity": "low",
+      "targetPath": "$.AssignedRoles[0].DisplayName",
+      "evidence": "Path not found: $.AssignedRoles",
+      "whyItMatters": "Role assignments should be properly configured and visible.",
+      "evaluationResult": "Value does not exist",
+      "ruleId": "Nested-Array-001",
+      "remediation": "Review and properly assign roles to users.",
+      "title": "User has specific role assignment",
+      "status": "failed"
+    },
+    {
+      "severity": "high",
+      "targetPath": "Composite rule",
+      "evidence": "{\"Id\":\"019a6e44-e62c-40d2-bbd4-b7a741087bb7\",\"UserPrincipalName\":\"Andrew@camnetcyber.au\",\"DisplayName\":\"Andrew Nathan\",\"AccountEnabled\":true,\"AssignedLicenses\":[{\"DisabledPlans\":[],\"SkuId\":\"f245ecc8-75af-4f8e-b61f-27d8114de5f3\"}],\"CreatedDateTime\":\"2025-08-25T05:06:46Z\",\"StrongAuthenticationRequirements\":[{\"RelyingParty\":\"*\",\"State\":\"Enforced\"}],\"StrongAuthenticationMethods\":[{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}],\"AssignedRoles\":[]}",
+      "whyItMatters": "All critical account settings must be properly configured for security compliance.",
+      "evaluationResult": "Composite AND evaluation: $.AccountEnabled: True $.UserPrincipalName: True $.StrongAuthenticationRequirements[0].State: False -join ', '",
+      "ruleId": "Complex-Composite-001",
+      "remediation": "Ensure account is enabled, has valid UPN, and MFA is enforced.",
+      "title": "User account is fully compliant",
+      "status": "failed"
+    },
+    {
+      "severity": "high",
+      "targetPath": "$.StrongAuthenticationRequirements[0].State",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enabled\"}",
+      "whyItMatters": "MFA reduces account takeover risk by requiring additional authentication factors.",
+      "evaluationResult": "Value comparison: expected 'Enforced', got 'null'",
+      "ruleId": "MFA-State-001",
+      "remediation": "Enable MFA for all user accounts in Azure AD.",
+      "title": "MFA enabled for user",
+      "status": "warning"
+    },
+    {
+      "severity": "high",
+      "targetPath": "$.StrongAuthenticationMethods",
+      "evidence": "{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}",
+      "whyItMatters": "Phishing-resistant methods prevent SMS-based attacks and provide stronger security.",
+      "evaluationResult": "Type mismatch: expected 'array', got 'object'",
+      "ruleId": "MFA-Methods-002",
+      "remediation": "Configure Authenticator app, FIDO2, or Windows Hello for Business as MFA methods.",
+      "title": "Phishing-resistant MFA methods configured",
+      "status": "failed"
+    },
+    {
+      "severity": "high",
+      "targetPath": "Composite rule",
+      "evidence": "{\"RelyingParty\":\"*\",\"State\":\"Enabled\"}",
+      "whyItMatters": "MFA must be both enabled and have multiple authentication methods configured for proper security.",
+      "evaluationResult": "Composite AND evaluation: $.StrongAuthenticationRequirements[0].State: False $.StrongAuthenticationMethods: False -join ', '",
+      "ruleId": "MFA-Composite-001",
+      "remediation": "Enable MFA and configure at least one authentication method.",
+      "title": "MFA properly configured with multiple methods",
+      "status": "failed"
+    },
+    {
+      "severity": "medium",
+      "targetPath": "$.StrongAuthenticationMethods[*].MethodType",
+      "evidence": "Dependency not satisfied: MFA-Methods-002",
+      "whyItMatters": "Authenticator apps provide better security than SMS-based MFA.",
+      "evaluationResult": "Rule skipped due to failed dependencies",
+      "ruleId": "MFA-Dependent-001",
+      "remediation": "Enable Microsoft Authenticator app as an MFA method for users.",
+      "title": "MFA methods are phishing-resistant",
+      "status": "warning"
+    },
+    {
+      "severity": "medium",
+      "targetPath": "$.UserPrincipalName",
+      "evidence": "\"info@camnetcyber.au\"",
+      "whyItMatters": "Valid UPN format ensures proper user identification and authentication.",
+      "evaluationResult": "Custom evaluator error: Cannot overwrite variable ExecutionContext because it is read-only or constant.",
+      "ruleId": "UPN-Pattern-001",
+      "remediation": "Ensure all users have valid email-format User Principal Names.",
+      "title": "User Principal Name follows corporate pattern",
+      "status": "failed"
+    },
+    {
+      "severity": "low",
+      "targetPath": "$.AssignedRoles[0].DisplayName",
+      "evidence": "Path not found: $.AssignedRoles",
+      "whyItMatters": "Role assignments should be properly configured and visible.",
+      "evaluationResult": "Value does not exist",
+      "ruleId": "Nested-Array-001",
+      "remediation": "Review and properly assign roles to users.",
+      "title": "User has specific role assignment",
+      "status": "failed"
+    },
+    {
+      "severity": "high",
+      "targetPath": "Composite rule",
+      "evidence": "{\"Id\":\"915e1219-bdbd-4f40-ab4e-2003b9dd05d3\",\"UserPrincipalName\":\"info@camnetcyber.au\",\"DisplayName\":\"Info Account\",\"AccountEnabled\":true,\"AssignedLicenses\":[{\"DisabledPlans\":[],\"SkuId\":\"f245ecc8-75af-4f8e-b61f-27d8114de5f3\"}],\"CreatedDateTime\":\"2025-09-26T04:19:27Z\",\"StrongAuthenticationRequirements\":[{\"RelyingParty\":\"*\",\"State\":\"Enabled\"}],\"StrongAuthenticationMethods\":[{\"MethodType\":\"AuthenticatorApp\",\"IsDefault\":true}],\"AssignedRoles\":[]}",
+      "whyItMatters": "All critical account settings must be properly configured for security compliance.",
+      "evaluationResult": "Composite AND evaluation: $.AccountEnabled: True $.UserPrincipalName: True $.StrongAuthenticationRequirements[0].State: False -join ', '",
+      "ruleId": "Complex-Composite-001",
+      "remediation": "Ensure account is enabled, has valid UPN, and MFA is enforced.",
+      "title": "User account is fully compliant",
+      "status": "failed"
+    }
+  ]
+}

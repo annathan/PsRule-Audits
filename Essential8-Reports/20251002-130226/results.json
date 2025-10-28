@@ -1,0 +1,471 @@
+[
+  {
+    "RuleName": "Essential8.E8-7.AzureAD.MFA.AllUsersEnabled",
+    "RunId": "a3cbfcdda20d3dec188537172fdaf8681cf5f7d9",
+    "Ref": null,
+    "Level": 1,
+    "Outcome": "Fail",
+    "OutcomeReason": "Processed",
+    "Reason": [
+      "Essential 8 requires MFA for all users to protect against credential theft",
+      "MFA must be enabled or enforced for all users"
+    ],
+    "TargetName": "f050417f39de8aa956075e9b4618b0b74458c7fc",
+    "TargetType": "System.Management.Automation.PSCustomObject",
+    "Data": null,
+    "Field": null,
+    "Tag": null,
+    "Info": {
+      "Name": "Essential8.E8-7.AzureAD.MFA.AllUsersEnabled",
+      "DisplayName": "Essential8.E8-7.AzureAD.MFA.AllUsersEnabled",
+      "ModuleName": null,
+      "Synopsis": null,
+      "Description": null,
+      "Recommendation": "Multi-factor authentication should be enabled for all users",
+      "Annotations": null
+    },
+    "Time": 11,
+    "Error": null,
+    "Source": [
+      {
+        "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\Essential8-Data\\aad.users.json",
+        "Line": 2,
+        "Position": 22,
+        "Type": "File"
+      }
+    ],
+    "Detail": {},
+    "Extent": {
+      "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\rules\\Azure\\Essential8.MultiFactorAuthentication.Rule.ps1",
+      "Line": 7,
+      "Position": 1
+    },
+    "Recommendation": "Multi-factor authentication should be enabled for all users",
+    "TargetObject": {
+      "UserPrincipalName": "AndrewNathan@camnetcybersecurity.com.au",
+      "StrongAuthenticationRequirements": null,
+      "AssignedLicenses": null
+    },
+    "RuleId": ".\\Essential8.E8-7.AzureAD.MFA.AllUsersEnabled"
+  },
+  {
+    "RuleName": "Essential8.E8-7.AzureAD.EmergencyAccess",
+    "RunId": "a3cbfcdda20d3dec188537172fdaf8681cf5f7d9",
+    "Ref": null,
+    "Level": 1,
+    "Outcome": "Fail",
+    "OutcomeReason": "Inconclusive",
+    "Reason": [
+      "Essential 8 requires emergency access accounts to be cloud-only and properly secured"
+    ],
+    "TargetName": "f050417f39de8aa956075e9b4618b0b74458c7fc",
+    "TargetType": "System.Management.Automation.PSCustomObject",
+    "Data": null,
+    "Field": null,
+    "Tag": null,
+    "Info": {
+      "Name": "Essential8.E8-7.AzureAD.EmergencyAccess",
+      "DisplayName": "Essential8.E8-7.AzureAD.EmergencyAccess",
+      "ModuleName": null,
+      "Synopsis": null,
+      "Description": null,
+      "Recommendation": "Emergency access accounts should be properly configured and monitored",
+      "Annotations": null
+    },
+    "Time": 8,
+    "Error": null,
+    "Source": [
+      {
+        "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\Essential8-Data\\aad.users.json",
+        "Line": 2,
+        "Position": 22,
+        "Type": "File"
+      }
+    ],
+    "Detail": {},
+    "Extent": {
+      "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\rules\\Azure\\Essential8.MultiFactorAuthentication.Rule.ps1",
+      "Line": 103,
+      "Position": 1
+    },
+    "Recommendation": "Emergency access accounts should be properly configured and monitored",
+    "TargetObject": {
+      "UserPrincipalName": "AndrewNathan@camnetcybersecurity.com.au",
+      "StrongAuthenticationRequirements": null,
+      "AssignedLicenses": null
+    },
+    "RuleId": ".\\Essential8.E8-7.AzureAD.EmergencyAccess"
+  },
+  {
+    "RuleName": "Essential8.E8-5.AzureAD.Admin.DedicatedAccounts",
+    "RunId": "71327ac689104dd2ad1c4a1dee9e8792ae0bf4db",
+    "Ref": null,
+    "Level": 1,
+    "Outcome": "Pass",
+    "OutcomeReason": "Processed",
+    "Reason": null,
+    "TargetName": "9f98546a36f77b2dbb503621624e22d342f86137",
+    "TargetType": "System.Management.Automation.PSCustomObject",
+    "Data": null,
+    "Field": null,
+    "Tag": {
+      "E8": "E8-5",
+      "MaturityLevel": "ML2",
+      "Severity": "Medium",
+      "Category": "Administrative Privileges"
+    },
+    "Info": {
+      "Name": "Essential8.E8-5.AzureAD.Admin.DedicatedAccounts",
+      "DisplayName": "Essential8.E8-5.AzureAD.Admin.DedicatedAccounts",
+      "ModuleName": null,
+      "Synopsis": null,
+      "Description": null,
+      "Recommendation": "Privileged accounts should be dedicated admin accounts, not regular user accounts",
+      "Annotations": null
+    },
+    "Time": 12,
+    "Error": null,
+    "Source": [
+      {
+        "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\Essential8-Data\\aad.user.enforced.json",
+        "Line": 2,
+        "Position": 22,
+        "Type": "File"
+      }
+    ],
+    "Detail": {},
+    "Extent": {
+      "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\rules\\Azure\\Essential8.AdministrativePrivileges.Rule.ps1",
+      "Line": 33,
+      "Position": 1
+    },
+    "Recommendation": "Privileged accounts should be dedicated admin accounts, not regular user accounts",
+    "TargetObject": {
+      "UserPrincipalName": "admin@contoso.com",
+      "StrongAuthenticationRequirements": [
+        {
+          "State": "Enforced"
+        }
+      ],
+      "StrongAuthenticationMethods": [
+        {
+          "MethodType": "AuthenticatorApp",
+          "IsDefault": true
+        }
+      ],
+      "AssignedRoles": [
+        {
+          "DisplayName": "Global Administrator"
+        }
+      ]
+    },
+    "RuleId": ".\\Essential8.E8-5.AzureAD.Admin.DedicatedAccounts"
+  },
+  {
+    "RuleName": "Essential8.E8-5.AzureAD.Admin.MFARequired",
+    "RunId": "71327ac689104dd2ad1c4a1dee9e8792ae0bf4db",
+    "Ref": null,
+    "Level": 1,
+    "Outcome": "Pass",
+    "OutcomeReason": "Processed",
+    "Reason": null,
+    "TargetName": "9f98546a36f77b2dbb503621624e22d342f86137",
+    "TargetType": "System.Management.Automation.PSCustomObject",
+    "Data": null,
+    "Field": null,
+    "Tag": {
+      "E8": "E8-5",
+      "MaturityLevel": "ML1",
+      "Severity": "Critical",
+      "Category": "Administrative Privileges"
+    },
+    "Info": {
+      "Name": "Essential8.E8-5.AzureAD.Admin.MFARequired",
+      "DisplayName": "Essential8.E8-5.AzureAD.Admin.MFARequired",
+      "ModuleName": null,
+      "Synopsis": null,
+      "Description": null,
+      "Recommendation": "All privileged accounts must have MFA enforced",
+      "Annotations": null
+    },
+    "Time": 5,
+    "Error": null,
+    "Source": [
+      {
+        "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\Essential8-Data\\aad.user.enforced.json",
+        "Line": 2,
+        "Position": 22,
+        "Type": "File"
+      }
+    ],
+    "Detail": {},
+    "Extent": {
+      "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\rules\\Azure\\Essential8.AdministrativePrivileges.Rule.ps1",
+      "Line": 84,
+      "Position": 1
+    },
+    "Recommendation": "All privileged accounts must have MFA enforced",
+    "TargetObject": {
+      "UserPrincipalName": "admin@contoso.com",
+      "StrongAuthenticationRequirements": [
+        {
+          "State": "Enforced"
+        }
+      ],
+      "StrongAuthenticationMethods": [
+        {
+          "MethodType": "AuthenticatorApp",
+          "IsDefault": true
+        }
+      ],
+      "AssignedRoles": [
+        {
+          "DisplayName": "Global Administrator"
+        }
+      ]
+    },
+    "RuleId": ".\\Essential8.E8-5.AzureAD.Admin.MFARequired"
+  },
+  {
+    "RuleName": "Essential8.E8-7.AzureAD.MFA.AllUsersEnabled",
+    "RunId": "71327ac689104dd2ad1c4a1dee9e8792ae0bf4db",
+    "Ref": null,
+    "Level": 1,
+    "Outcome": "Pass",
+    "OutcomeReason": "Processed",
+    "Reason": null,
+    "TargetName": "9f98546a36f77b2dbb503621624e22d342f86137",
+    "TargetType": "System.Management.Automation.PSCustomObject",
+    "Data": null,
+    "Field": null,
+    "Tag": null,
+    "Info": {
+      "Name": "Essential8.E8-7.AzureAD.MFA.AllUsersEnabled",
+      "DisplayName": "Essential8.E8-7.AzureAD.MFA.AllUsersEnabled",
+      "ModuleName": null,
+      "Synopsis": null,
+      "Description": null,
+      "Recommendation": "Multi-factor authentication should be enabled for all users",
+      "Annotations": null
+    },
+    "Time": 1,
+    "Error": null,
+    "Source": [
+      {
+        "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\Essential8-Data\\aad.user.enforced.json",
+        "Line": 2,
+        "Position": 22,
+        "Type": "File"
+      }
+    ],
+    "Detail": {},
+    "Extent": {
+      "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\rules\\Azure\\Essential8.MultiFactorAuthentication.Rule.ps1",
+      "Line": 7,
+      "Position": 1
+    },
+    "Recommendation": "Multi-factor authentication should be enabled for all users",
+    "TargetObject": {
+      "UserPrincipalName": "admin@contoso.com",
+      "StrongAuthenticationRequirements": [
+        {
+          "State": "Enforced"
+        }
+      ],
+      "StrongAuthenticationMethods": [
+        {
+          "MethodType": "AuthenticatorApp",
+          "IsDefault": true
+        }
+      ],
+      "AssignedRoles": [
+        {
+          "DisplayName": "Global Administrator"
+        }
+      ]
+    },
+    "RuleId": ".\\Essential8.E8-7.AzureAD.MFA.AllUsersEnabled"
+  },
+  {
+    "RuleName": "Essential8.E8-7.AzureAD.MFA.PrivilegedEnforced",
+    "RunId": "71327ac689104dd2ad1c4a1dee9e8792ae0bf4db",
+    "Ref": null,
+    "Level": 1,
+    "Outcome": "Pass",
+    "OutcomeReason": "Processed",
+    "Reason": null,
+    "TargetName": "9f98546a36f77b2dbb503621624e22d342f86137",
+    "TargetType": "System.Management.Automation.PSCustomObject",
+    "Data": null,
+    "Field": null,
+    "Tag": null,
+    "Info": {
+      "Name": "Essential8.E8-7.AzureAD.MFA.PrivilegedEnforced",
+      "DisplayName": "Essential8.E8-7.AzureAD.MFA.PrivilegedEnforced",
+      "ModuleName": null,
+      "Synopsis": null,
+      "Description": null,
+      "Recommendation": "Privileged accounts must have MFA enforced, not just enabled",
+      "Annotations": null
+    },
+    "Time": 5,
+    "Error": null,
+    "Source": [
+      {
+        "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\Essential8-Data\\aad.user.enforced.json",
+        "Line": 2,
+        "Position": 22,
+        "Type": "File"
+      }
+    ],
+    "Detail": {},
+    "Extent": {
+      "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\rules\\Azure\\Essential8.MultiFactorAuthentication.Rule.ps1",
+      "Line": 19,
+      "Position": 1
+    },
+    "Recommendation": "Privileged accounts must have MFA enforced, not just enabled",
+    "TargetObject": {
+      "UserPrincipalName": "admin@contoso.com",
+      "StrongAuthenticationRequirements": [
+        {
+          "State": "Enforced"
+        }
+      ],
+      "StrongAuthenticationMethods": [
+        {
+          "MethodType": "AuthenticatorApp",
+          "IsDefault": true
+        }
+      ],
+      "AssignedRoles": [
+        {
+          "DisplayName": "Global Administrator"
+        }
+      ]
+    },
+    "RuleId": ".\\Essential8.E8-7.AzureAD.MFA.PrivilegedEnforced"
+  },
+  {
+    "RuleName": "Essential8.E8-7.AzureAD.MFA.PhishingResistant",
+    "RunId": "71327ac689104dd2ad1c4a1dee9e8792ae0bf4db",
+    "Ref": null,
+    "Level": 1,
+    "Outcome": "Pass",
+    "OutcomeReason": "Processed",
+    "Reason": null,
+    "TargetName": "9f98546a36f77b2dbb503621624e22d342f86137",
+    "TargetType": "System.Management.Automation.PSCustomObject",
+    "Data": null,
+    "Field": null,
+    "Tag": null,
+    "Info": {
+      "Name": "Essential8.E8-7.AzureAD.MFA.PhishingResistant",
+      "DisplayName": "Essential8.E8-7.AzureAD.MFA.PhishingResistant",
+      "ModuleName": null,
+      "Synopsis": null,
+      "Description": null,
+      "Recommendation": "Users should use phishing-resistant MFA methods (Authenticator app, FIDO2, Windows Hello)",
+      "Annotations": null
+    },
+    "Time": 4,
+    "Error": null,
+    "Source": [
+      {
+        "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\Essential8-Data\\aad.user.enforced.json",
+        "Line": 2,
+        "Position": 22,
+        "Type": "File"
+      }
+    ],
+    "Detail": {},
+    "Extent": {
+      "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\rules\\Azure\\Essential8.MultiFactorAuthentication.Rule.ps1",
+      "Line": 53,
+      "Position": 1
+    },
+    "Recommendation": "Users should use phishing-resistant MFA methods (Authenticator app, FIDO2, Windows Hello)",
+    "TargetObject": {
+      "UserPrincipalName": "admin@contoso.com",
+      "StrongAuthenticationRequirements": [
+        {
+          "State": "Enforced"
+        }
+      ],
+      "StrongAuthenticationMethods": [
+        {
+          "MethodType": "AuthenticatorApp",
+          "IsDefault": true
+        }
+      ],
+      "AssignedRoles": [
+        {
+          "DisplayName": "Global Administrator"
+        }
+      ]
+    },
+    "RuleId": ".\\Essential8.E8-7.AzureAD.MFA.PhishingResistant"
+  },
+  {
+    "RuleName": "Essential8.E8-7.AzureAD.EmergencyAccess",
+    "RunId": "71327ac689104dd2ad1c4a1dee9e8792ae0bf4db",
+    "Ref": null,
+    "Level": 1,
+    "Outcome": "Fail",
+    "OutcomeReason": "Inconclusive",
+    "Reason": [
+      "Essential 8 requires emergency access accounts to be cloud-only and properly secured"
+    ],
+    "TargetName": "9f98546a36f77b2dbb503621624e22d342f86137",
+    "TargetType": "System.Management.Automation.PSCustomObject",
+    "Data": null,
+    "Field": null,
+    "Tag": null,
+    "Info": {
+      "Name": "Essential8.E8-7.AzureAD.EmergencyAccess",
+      "DisplayName": "Essential8.E8-7.AzureAD.EmergencyAccess",
+      "ModuleName": null,
+      "Synopsis": null,
+      "Description": null,
+      "Recommendation": "Emergency access accounts should be properly configured and monitored",
+      "Annotations": null
+    },
+    "Time": 0,
+    "Error": null,
+    "Source": [
+      {
+        "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\Essential8-Data\\aad.user.enforced.json",
+        "Line": 2,
+        "Position": 22,
+        "Type": "File"
+      }
+    ],
+    "Detail": {},
+    "Extent": {
+      "File": "C:\\Users\\AndrewNathanE²\\Github\\PsRule-Audits\\rules\\Azure\\Essential8.MultiFactorAuthentication.Rule.ps1",
+      "Line": 103,
+      "Position": 1
+    },
+    "Recommendation": "Emergency access accounts should be properly configured and monitored",
+    "TargetObject": {
+      "UserPrincipalName": "admin@contoso.com",
+      "StrongAuthenticationRequirements": [
+        {
+          "State": "Enforced"
+        }
+      ],
+      "StrongAuthenticationMethods": [
+        {
+          "MethodType": "AuthenticatorApp",
+          "IsDefault": true
+        }
+      ],
+      "AssignedRoles": [
+        {
+          "DisplayName": "Global Administrator"
+        }
+      ]
+    },
+    "RuleId": ".\\Essential8.E8-7.AzureAD.EmergencyAccess"
+  }
+]
